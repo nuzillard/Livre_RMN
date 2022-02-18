@@ -1,0 +1,15 @@
+#!/bin/bash
+gf=`ls *.gnu`
+for f in $gf
+do
+  rn=${f%.*}
+  gnuplot $f
+  eps2eps -f $rn.ps $rn.eps
+done
+rm *.ps
+latex essai
+dvips essai -o essai.ps
+ps2pdf essai.ps
+evince essai.pdf
+rm *.ps *.dvi *.log *.aux
+

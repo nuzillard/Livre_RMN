@@ -1,0 +1,223 @@
+\chapter{Transformation de Fourier}
+\label{chap:fourier}
+
+Bien que d'innombrables ouvrages existent sur le sujet, cette annexe,
+sans prétention de rigueur mathématique aucune, est destinée à montrer
+que les équations qui définissent la TF sont accessibles sans trop de
+développements théoriques.
+
+\section{Série de Fourier}
+Le concept de d'analyse en séries de Fourier ne s'applique qu'aux fonctions
+périodiques.
+Son étude constitue cependant le préliminaire à celle de la TF.
+Une fonction $x(t)$ de la variable réelle $t$ et à valeurs réelles
+est périodique de période $T$ si
+\begin{equation}
+x(t+kT) = x(t) \qavecq k \in \mathbb{Z}
+\end{equation}
+En conséquence, la connaissance de $x$ pour $t$ dans l'intervalle $[t_0, t_0+T[$
+suffit pour définir $x$ partout.
+La relation
+\begin{equation}
+\omz = 2\pi\nu_0 = \frac{2\pi}{T}
+\end{equation}
+définit la fréquence $\nu_0$ et la pulsation $\omz$ de la fonction $x(t)$.
+
+Le développement de $x(t)$ en série de Fourier s'écrit :
+\begin{equation}
+\label{eqn:serfourdef}
+x(t) = \frac{a_0}{2}+\sum_{n=1}^{\infty}
+\left[a_n \cos(n\omz t) + b_n \sin(n\omz t) \right]
+\end{equation}
+
+Le fait que le coefficient $a_0$ soit divisé par 2 dans le premier terme
+est une commodité qui prendra son sens un peu plus tard.
+Ainsi, $x(t)$ est la somme d'une constante $a_0/2$ et d'une somme de fonctions
+cosinus et sinus de pulsations $\omz$, $2\omz$, $3\omz$, $\ldots$.
+Ces dernières étant des fonctions dont la valeur moyenne sur une période est nulle,
+il en ressort que $a_0/2$ représente la valeur moyenne de $x(t)$.
+La fonction $a_1 \cos(\omz t) + b_1 \sin(\omz t)$ ($n=1$) est de même
+pulsation que $x(t)$ et s'appelle la composante fondamentale de $x(t)$.
+Toute fonction sinusoïdale $A\cos(\omz t+\phi)$ d'amplitude $A$, de pulsation
+$\omz$ et de phase à l'origine $\phi$ est susceptible de se mettre sous cette forme,
+avec $a_1 = A \cos\phi$ et $b_1 = -\sin\phi$.
+Les fonctions $a_n \cos(n\omz t) + b_n \sin(n\omz t)$ avec $n>1$ sont appelées harmoniques
+d'ordre $n$.
+L'ensemble des valeurs $a_0, a_1, \ldots, a_n, \ldots, b_1, \ldots, b_n, \ldots$
+définissent entièrement la fonction $x(t)$ et sont les coefficient du
+développement de $s(t)$ en série de Fourier.
+Une fonction $x(t)$ étant donnée, le problème est savoir calculer ces coefficients.
+
+Le calcul des coefficients de Fourier repose sur les résultats suivants :
+\begin{eqnarray}
+\label{eqn:intcosmcosn}
+\intfou \cos(n\omz t)\cos(m\omz t) dt & = & 0 \quad\mbox{si}\quad n \ne m \\
+\label{eqn:intsinmsinn}
+\intfou \sin(n\omz t)\sin(m\omz t) dt & = & 0 \quad\mbox{si}\quad n \ne m \\
+\label{eqn:intcossin}
+\intfou \cos(n\omz t)\sin(m\omz t) dt & = & 0
+\end{eqnarray}
+et
+\begin{equation}
+\label{eqn:intcossqr}
+\intfou \cos^2(n\omz t) dt = \intfou \sin^2(n\omz t) dt = \frac{T}{2}
+\end{equation}
+
+Ces résultats s'obtiennent aisément en considérant les identités trigonométriques
+\begin{eqnarray}
+\cos a \cos b & = & \frac{1}{2}\left[ \cos(a-b) + \cos(a+b) \right] \\
+\sin a \sin b & = & \frac{1}{2}\left[ \cos(a-b) - \cos(a+b) \right] \\
+\sin a \cos b & = & \frac{1}{2}\left[ \sin(a+b) - \sin(a-b) \right]
+\end{eqnarray}
+avec $a = n\omz t$ et $b = m\omz t$.
+Sachant que $n > 0$ et $m > 0$, $a-b$ et $a+b$ sont non nuls lorsque $a \ne b$.
+Il en résulte que le membre de gauche des relations \ref{eqn:intcosmcosn}
+et \ref{eqn:intsinmsinn} est nul car les fonctions intégrées sont de moyenne nulle
+sur un nombre entier de périodes.
+Même si $a = b$ ($n = m$), la fonction intégrée dans la relation \ref{eqn:intcossin}
+conduit aussi à une valeur nulle.
+
+La valeur de $a_0$ s'obtient en intégrant les deux membres de l'équation
+\ref{eqn:serfourdef} sur une période :
+\begin{equation}
+\intfou x(t) dt = \intfou \frac{a_0}{2} dt = \frac{a_0 T}{2} 
+\end{equation}
+d'où
+\begin{equation}
+\label{eqn:coeffazero}
+a_0 = \frac{2}{T}\intfou s(t) dt 
+\end{equation}
+Chaque coefficient $a_n$ est obtenu en multipliant les deux membres de l'équation
+\ref{eqn:serfourdef} par $\cos(n \omz t)$ et en les intégrant sur une période :
+\begin{equation}
+\intfou x(t) \cos(n \omz t)dt = a_n\intfou \cos^2(n\omz t) dt = \frac{a_n T}{2}
+\end{equation}
+d'où
+\begin{equation}
+\label{eqn:coeffan}
+a_n = \frac{2}{T}\intfou x(t) \cos(n\omz t) dt
+\end{equation}
+qui reste valable quand $n=0$ (à cause du facteur 1/2 appliqué à $a_0$ dans
+l'équation \ref{eqn:serfourdef}.
+De même,
+\begin{equation}
+\label{eqn:coeffbn}
+b_n = \frac{2}{T}\intfou x(t) \sin(n\omz t) dt
+\end{equation}
+qui reste valable si $n=0$, en définissant $b_0 = 0$.
+
+Les coefficients $a_n$ et $b_n$ peuvent être définis pour $n<0$ 
+à partir des relations \ref{eqn:coeffan} et \ref{eqn:coeffbn} :
+\begin{equation}
+a_{-n} = a_n \qetq b_{-n} = -b_n
+\end{equation}
+
+Le remplacement dans l'équation \ref{eqn:serfourdef}
+des fonctions sinus et cosinus par les fonctions
+exponentielles complexes équivalentes fournit :
+\begin{eqnarray}
+x(t) & = & \frac{a_0}{2} + 
+\sum_{n=1}^{\infty} a_n \frac{\exp(in\omz t)+\exp(-in\omz t)}{2}
+\nonumber\\
+& & \quad \quad \quad 
++\sum_{n=1}^{\infty} b_n \frac{\exp(in\omz t)+\exp(-in\omz t)}{2i} \\
+x(t) & = & \frac{a_0}{2} + 
+\sum_{n=1}^{\infty} \frac{a_n-ib_n}{2}\exp(in\omz t)
+\nonumber\\
+& & \quad \quad \quad 
++\sum_{n=1}^{\infty} \frac{a_n+ib_n}{2}\exp(-in\omz t) \\
+x(t) & = & \frac{a_0}{2} + 
+\sum_{n=1}^{\infty} \frac{a_n-ib_n}{2}\exp(in\omz t)
+\nonumber\\
+& & \quad \quad \quad 
++\sum_{n=1}^{\infty} \frac{a_{-n}-ib_{-n}}{2}\exp(i(-n)\omz t) \\
+x(t) & = & \sum_{n=-\infty}^{\infty} \frac{a_n-ib_n}{2}\exp(in\omz t)
+\end{eqnarray}
+
+En définissant $c_n$ par
+\begin{equation}
+c_n = \frac{a_n - i b_n}{2}
+\end{equation}
+les deux énoncés suivants sont équivalents :
+\begin{eqnarray}
+\label{eqn:serfourreim}
+x(t) & = & \sum_{n=-\infty}^{\infty} c_n \exp(in\omz t) \\
+\label{eqn:coefffourreim}
+c_n & = & \frac{1}{T}\intfou x(t)\exp(-in\omz t)dt
+\end{eqnarray}
+Ils constituent une reformulation de \ref{eqn:serfourdef} où la décomposition
+d'une fonction périodique de période $T$
+s'éffectue sur l'ensemble des fonctions exponentielles
+complexes $\exp(in\omz t)$ ($-\infty < n < \infty, n \in \mathbb{Z}$).
+
+Si la fonction périodique $x(t)$ est à valeurs complexes alors ses parties réelle
+$x'(t)$ et imaginaire $x''(t)$ sont aussi périodiques et susceptibles
+d'être décomposées en séries de Fourier :
+\begin{eqnarray}
+x(t) & = & x'(t) + i x''(t) \\
+c_n(t) & = & c'_n(t) + i c''_n(t)
+\end{eqnarray}
+où les coefficients $c'_n$ et $c''_n$ sont respectivement 
+issus de la décomposition de $x'(t)$ et $x''(t)$.
+Les relations \ref{eqn:serfourreim} et \ref{eqn:coefffourreim}
+s'appliquent donc aussi aux fonctions périodiques à valeurs complexes.
+
+\section{Transformation de Fourier}
+L'analyse d'une fonction par TF constitue une extension du concept de
+décomposition en série de Fourier lorsque cette fonction n'est pas périodique.
+On considère alors la fonction $\hat{x}(t)$ périodique de période $T$ telle que
+\begin{equation}
+\hat{x}(t) = x(t) \qpourq -\frac{T}{2} \le t \le \frac{T}{2}
+\end{equation}
+
+Lorsque $T$ tend vers l'infini, $\hat{x}(t)$ tend vers $x(t)$, $\omz$ tend vers 0,
+et donc la différence de pulsations entre deux harmoniques consécutives
+tend vers 0. Les définitions 
+\begin{equation}
+\omz = d\omega \quad \omega = n\omz \qetq \hat{y}(\omz) = c_n
+\end{equation}
+et l'approximation de la somme discrète du membre de gauche de l'équation
+\ref{eqn:serfourreim} conduisent aux relations :
+\begin{eqnarray}
+\omz \hat{x}(t) & = & \intmp \hat{y}(\omega)\exp(i\omega t) d\omega \\
+\hat{y}(\omega) & = & \frac{1}{T} \intfoub \hat{x}(t) \exp(-i\omega t) dt
+\end{eqnarray}
+Le passage à la limite quand $T$ tend vers l'infini permet d'écrire l'identité
+\begin{equation}
+x(t) = \frac{1}{2\pi}\intmp
+\left[\intmp x(t) \exp(-i\omega t) dt
+\right] \exp(i\omega t) d\omega
+\end{equation}
+sous réserve que les intégrales en question convergent.
+Cette dernière relation conduit à définir la fonction $y(\omega)$
+comme TF de $x(t)$ et $x(t)$ comme la TF inverse de $y(\omega)$ :
+\begin{eqnarray}
+\label{eqn:tfinv}
+x(t) & = & K \intmp y(\omega) \exp(i\omega t) d\omega \\
+\label{eqn:tf}
+y(\omega) & = & K' \intmp x(t) \exp(-i\omega t) dt \\
+2\pi K K' & = & 1
+\end{eqnarray}
+
+Plusieurs attitudes sont possibles vis-à-vis de $K$ et de $K'$ :
+\begin{itemize}
+\item le mépris : $K = K' = 1$,
+\item l'attachement au concept de synthèse de Fourier où $x(t)$ est une somme de
+fonctions exponentielles complexes : $K=1$ et $K' = 1/2\pi$,
+\item l'attachement à la symétrie formelle entre $x(t)$ et $y(\omega)$ :
+$K = K' = 1/\sqrt{2\pi}$.
+\end{itemize}
+
+\section{TF d'une fonction réelle}
+Si $x(t)$ est une fonction à valeurs réelle, les parties réelles
+et imaginaires de sa TF s'écrivent
+\begin{eqnarray}
+\label{eqn:tfrere}
+\mbox{Re}[y(\omega)] & = & \intmp x(t) \cos(\omega t) dt \\
+\label{eqn:tfreim}
+\mbox{Im}[y(\omega)] & = & \intmp x(t) \sin(\omega t) dt 
+\end{eqnarray}
+Lorsque $x(t)$ représente un signal \emph{causal}, c'est-à-dire tel
+que $x(t)=0$ si $t<0$, alors la borne de inférieure de l'intégrale
+dans les équations \ref{eqn:tfrere} et \ref{eqn:tfreim} est remplacée par $0$
+comme dans les équations \ref{eqn:ftftr} et \ref{eqn:ftfti}.

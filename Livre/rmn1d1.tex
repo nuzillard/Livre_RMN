@@ -1,0 +1,1160 @@
+\chapter[RMN 1D]{Expériences à une dimension}
+
+La plus simple des expériences à une dimension (1D) est celle où après
+une période de mise ou de remise en équilibre de l'échantillon, 
+l'excitation des systèmes de spins par une unique impulsion 
+de radiofréquence est suivie de la détection du signal de précession libre.
+Le terme "1D" est relatif au fait que le spectre obtenu après TF
+est une fonction d'une seule variable fréquencielle.
+Des expériences 1D plus complexes font intervenir la relaxation,
+divers types de transfert d'aimantation, la spectroscopie à plusieurs quanta
+ou le découplage pour améliorer ou compléter les informations contenues dans
+les spectres "élémentaires".
+Les mesures des temps de relaxation et d'effet Overhauser nucléaire précisent 
+la nature de l'environnement des noyaux à travers l'espace.
+Les liaisons chimiques sont le support du couplage scalaire et autorisent
+l'analyse des systèmes de spin grâce aux transferts d'aimantation. 
+Enfin, le découplage est une méthode expérimentale indispensable
+en RMN hétéronucléaire car elle apporte à la fois une simplification
+des spectres et une amélioration de la sensibilité.
+Des applications de ces concepts à la spectroscopie 1D hétéronucléaire
+et aux expériences homonucléaires sélectives 1D seront présentées ci-après.
+
+\section{Effet Overhauser Nucléaire, nOe}
+\label{sec:noe}
+Le problème le plus critique posé par l'enregistrement de spectres 
+de noyaux isotopiquement dilués et de faible rapport gyromagnétique 
+est l'obtention d'un rapport signal sur bruit suffisant pour permettre
+une l'exploitation analytique des données.
+C'est par exemple le cas des noyaux de \carb.
+
+L'effet Overhauser nucléaire se manifeste par une modification des 
+intensités de certaines résonances lorsque d'autres sont saturées.
+Cet effet se manifeste entre noyaux de nature semblable ou différente,
+ainsi qu'entre noyaux et électrons (effet Overhauser électronique),
+pour peu qu'un couplage dipolaire existe entre les spins des particules.
+
+Le couplage dipolaire est l'interaction directe qui s'exerce à travers
+l'espace entre deux particules qui possèdent un moment magnétique.
+En considérant ces deux particules dans un état quantique défini par
+les deux valeurs de $m_s$, l'énergie de l'interaction dépend de l'orientation
+de la droite qui joint les particules avec la direction de $\bzerovec$.
+Au cours du temps, la réorientation aléatoire des molécules
+au sein d'un liquide isotrope produit une interaction 
+dont l'intensité est nulle en moyenne. 
+Le couplage dipolaire est ainsi indétectable si on ne considère que
+les fréquences de résonance des noyaux.
+Toutefois, l'existence d'une interaction d'intensité aléatoire
+entre noyaux contribue à la relaxation de leur aimantation macroscopique
+(il faut, à ce niveau de l'exposé, l'admettre).
+De fait, toute perturbation aléatoire des niveaux énergétiques des noyaux
+contribue à la relaxation.
+L'existence du couplage dipolaire a pour conséquence que la relaxation
+longitudinale de chaque noyau est influencée par celle de l'autre noyau.
+
+Considérons deux noyaux $I$ et $S$ de rapports gyromagnétiques $\gi$ et $\gs$.
+Les différences de population $\Delta P(I)$ et $\Delta P(S)$ sont
+aussi appelées polarisations et notées $\poli$ et $\pols$, dont les
+valeurs d'équilibre sont $\poliz$ et $\polsz$.
+L'évolution des polarisations est donnée par les équations de Solomon :
+\begin{eqnarray}
+\label{eqn:soli}
+\derivt{\poli} & = & -\rho_I \dpoli -\sigma \dpols \\
+\label{eqn:sols}
+\derivt{\pols} & = & -\rho_S \dpols -\sigma \dpoli
+\end{eqnarray}
+qui constituent une généralisation de l'équation $\ref{eqn:t1}$
+relative à la relaxation longitudinale.
+
+La grandeur $\sigma$ caractérise la vitesse (en $s^{-1}$) de relaxation \emph{croisée}
+entre les noyaux $I$ et $S$.
+Dans le cas où $\sigma$ est nul, les aimantations de $I$ et $S$ évoluent indépendamment.
+Ainsi
+\begin{equation}
+\frac{1}{T_1(I)} = \rho_I^{\dipolaire} + \rho_I^{\autres}
+\end{equation}
+En effet, la  relaxation longitudinale de $I$ est en partie causée par son interaction
+dipolaire avec $S$, mais aussi par d'autres influences de nature aléatoire.
+
+La saturation de l'aimantation du noyau $S$ par un champ de radiofréquence continu
+(voir section \ref{sec:eqnbloch}) d'intensité suffisante conduit à $\pols = 0$
+et donc à une évolution des polarisations jusqu'à un nouvel état stationnaire
+différent de l'état d'équilibre.
+A l'état stationnaire, l'équation \ref{eqn:soli} conduit à
+\begin{eqnarray}
+0 & = & -\rho_I \dpoli + \sigma \polsz \\
+\frac{\dpoli}{\poliz} & = & \frac{\sigma}{\rho_I} \frac{\polsz}{\poliz}
+\end{eqnarray}
+Sachant d'après l'équation \ref{eqn:diffpopgamma} que les polarisations 
+d'équilibre sont proportionnelles
+aux rapports gyromagnétiques, le rapport d'effet Overhauser $\eta$ s'écrit :
+\begin{equation}
+\eta = \frac{\dpoli}{\poliz} = \frac{\gs}{\gi} \frac{\sigma}{\rho_I}
+\end{equation}
+Il caractérise l'augmentation relative d'intensité du signal de $I$ lorsque l'aimantation
+des noyaux $S$ est préalablement saturée puisque pour un noyau donné,
+l'intensité des signaux mesurés est proportionnelle aux différences de population.
+Dans les situations où le couplage dipolaire est le mécanisme de relaxation prépondérant
+et que les molécules se réorientent très rapidement (petites molécules en solution
+de faible viscosité), le rapport $\sigma/\rho_I$ vaut $1/2$, et donc
+\begin{equation}
+\label{eqn:noe}
+\frac{\aimzI}{\aimzzi} = 1+\eta = 1+\frac{1}{2}\frac{\gs}{\gi}
+\end{equation}
+
+\section{Découplage}
+Considérons un système hétéronucléaire de deux noyaux $I$ et $S$ couplés scalairement.
+L'évolution d'un état $I_{x,y}$ conduit, pendant la détection de l'aimantation de $I$, à
+deux raies de résonance aux fréquences $\omsi \pm \pi J$ et d'intensité moitié par
+rapport à un noyau non couplé.
+
+Si les noyaux $S$ subissent en permanence une série d'échos de spin, 
+l'hamiltonien effectif d'évolution, $\omsi I_z$, ne fait pas intervenir la constante
+de couplage. 
+L'aimantation de $I$ évolue alors comme si $I$ n'était pas couplé à $S$.
+L'évolution libre d'un terme $2I_{x,y}S_z$ ne peut alors pas conduire
+à tes termes $I_{x,y}$ et n'est donc pas susceptible de produire un signal.
+
+Dans la pratique, la série d'échos de spin pourrait être constituée d'une 
+série d'impulsions à 180 degrés sans délai intercalé. 
+Sous cette forme, découpler serait équivalent à envoyer
+un champ de radiofréquence continu. Si on désire que le découplage soit uniforme
+pour l'ensemble des noyaux $I$ dont la fréquence de résonance s'étend
+sur plusieurs (ou dizaines de) kHz, cela implique des valeurs de champ 
+$\bunmax$ incompatibles avec les contraintes matérielles liées à la sonde 
+ou à l'échantillon (ou aux deux) par suite soit de l'effet Joule
+soit des pertes diélectriques.
+Les séquences utilisées pour le découplage \emph{large bande}
+sont constituée d'impulsions modulées en phase, en durée, voire en amplitude,
+le plus souvent optimisées par calcul numérique.
+
+Notons qu'une telle séquence, appliquée sur l'aimantation d'équilibre de $S$
+conduit aussi à la saturation de cette aimantation.
+
+\section{RMN du \carb}
+L'enregistrement d'un spectre de RMN du \carb (noyaux $I$), 
+dans sa forme la plus simple, requiert la saturation de l'aimantation des \prot
+(noyaux $S$) et l'obtention d'un état stationnaire pour l'aimantation des noyaux $I$,
+l'excitation de l'aimantation des noyaux de \carb, puis la détection du signal
+avec application d'une séquence de découplage sur les noyaux \prot.
+En résumé, il s'agit d'une séquence relaxation -- impulsion -- acquisition analogue
+à celle étudiée jusqu'ici sauf que les noyaux non observés sont soumis en permanence
+à une séquence de découplage.
+
+Sauf superposition accidentelle ou liée à la symétrie des molécules étudiés, chaque
+atome de carbone fournit une résonance identifiable par le déplacement chimique associé.
+L'information de couplage avec les noyaux \prot est perdue, mais en contrepartie
+les enchevêtrements de multiplets qui rendent les spectres peu lisibles sont éliminés.
+L'intensité des signaux des \carb liés à des \prot est multipliée par un facteur pouvant aller
+jusqu'à 3 ($\gs/\gi = 4$ dans l'équation \ref{eqn:noe}).
+Les signaux des carbones quaternaires ne profitent évidemment pas (ou peu) de l'effet Overhauser.
+De plus, leur temps de relaxation peut valoir plusieurs secondes car ils ne sont
+que faiblement soumis à la relaxation dipolaire.
+Le temps qu'il faudrait attendre entre deux impulsions (temps de répétition $T_R$)
+pour que l'aimantation de $I$
+revienne près de sa valeur initiale rend peu efficace l'augmentation du rapport 
+signal sur bruit par accumulation de plusieurs \FID.
+Cela conduit à utiliser un angle de nutation de l'aimantation optimisé par rapport 
+à $T_R$ et à $T_1$, angle qui peut être très inférieur à $\pi/2$ et
+qui dépend de $T_1$, grandeur qui est inconnue le plus souvent.
+La saturation partielle des signaux de \carb et l'inégalité des noyaux devant
+l'effet Overhauser rend hasardeuses les tentatives de tirer une information quantitative
+des spectres enregistrées dans des conditions inappropriées.
+
+L'enregistrement de spectres de RMN du \carb dans des conditions quantitatives
+requiert de n'actionner le découplage que pendant l'acquisition du signal
+et d'utiliser le $T_R$ le plus long possible compatible avec le rapport signal sur bruit
+désiré et le temps total de mesure disponible.
+
+L'augmentation de l'intensité des signaux des noyaux $S$ peut aussi être réalisée
+sans recourir à l'effet Overhauser, comme indiqué ci-après.
+
+\section{Transfert hétéronucléaire d'aimantation}
+Dans la suite du texte, et contrairement à ce qui est écrit depuis le début
+de ce chapitre, les noyaux \prot seront notés $I$ et les hétéronoyaux $S$,
+indépendemment de la nature du noyau détecté.
+Dans l'étude de l'effet Overhauser, il est d'usage d'appeler $S$
+le noyau dont l'aimantation est \emph{s}aturée.
+
+\begin{figure}[hbt]
+\begin{center}
+\begin{pspicture}(0,0)(6,5.5)
+% sequence I
+\psline(1,3.5)(6,3.5)
+\rput(0.5,4){RF($I$)}
+\psline[linewidth=2mm]{-}(1.9,3.5)(1.9,4.5)
+\rput(1.9,4.7){$\pi/2_x$}
+\psline[linewidth=2mm]{-}(3.9,3.5)(3.9,4.5)
+\rput(3.9,4.7){$\pi/2_y$}
+\rput(2.9,4){$T$}
+% sequence S
+\psline(1,2)(6,2)
+\rput(0.5,2.5){RF($S$)}
+\psline[linewidth=2mm]{-}(4.1,2)(4.1,3)
+\rput(4.3,3.2){$\pi/2_x$}
+% time marks
+\psline{->}(1,1)(6,1)
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(1.8,3.3)(1.8,0.8)
+\rput(1.7,0.5){0}
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(2,3.3)(2,0.8)
+\rput(2.1,0.5){1}
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(3.8,3.3)(3.8,0.8)
+\rput(3.7,0.5){2}
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(4,1.8)(4,0.8)
+\rput(4,0.5){3}
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(4.2,1.3)(4.2,0.8)
+\rput(4.3,0.5){4}
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(5,1.6)(5,0.8)
+\rput(5,0.5){$t$}
+% FID
+\rput(4.2,2){
+\pscurve(0,0.5)(0.5,0.25)(1.5,0)
+\pscurve(0,-0.5)(0.5,-0.25)(1.5,0)
+\psline(0,0.5)(0,-0.5)
+}
+\end{pspicture}
+\caption{\label{fig:transmagheta}
+Principe du transfert d'aimantation hétéronucléaire.}
+\end{center}
+\end{figure}
+
+\subsection{Principe}
+
+Détaillons l'effet de la séquence \ref{fig:transmagheta}
+sur la matrice densité initiale $I_z + aS_z$ d'un système scalairement 
+couplé $IS$ où $a = \gs/\gi$, soit $a = $ 0,25 si $S$ 
+désigne les noyaux de \carb. 
+Le temps $T$ vaut $1/2J$. 
+Calculons l'évolution de $I_z$ aux instants 1 à 4 en faisant l'hypothèse
+simplificatrice $\omsi = 0$ :
+\begin{eqnarray}
+\sigma_1 & = & - I_y \\
+\sigma_2 & = & -\cos\left(\frac{\pi J}{2 J}\right)\cdot I_y + 
+\sin\left(\frac{\pi J}{2 J}\right) \cdot 2I_xS_z = 2I_xS_z \\
+\sigma_3 & = & -2I_zS_z \\
+\label{eqn:fintransmag}
+\sigma_4 & = & 2I_zS_y
+\end{eqnarray}
+
+\begin{figure}[hbt]
+\begin{center}
+\begin{pspicture}(0,-3)(10,2.5)
+% a
+\psline(0,0)(2,0)
+\pstriangle*(0.5,0)(0.2,-0.5)
+\pstriangle*(1.5,0)(0.2,-0.5)
+\rput(0.5,-1){-1/4}
+\rput(1.5,-1){-1/4}
+\rput(0,-2){$a$}
+% b
+\psline(4,0)(6,0)
+\pstriangle*(4.5,0)(0.2,2)
+\pstriangle*(5.5,0)(0.2,-2)
+\rput(4.5,2.5){1}
+\rput(5.5,-2.5){-1}
+\rput(4,-2){$b$}
+% c
+\psline(8,0)(10,0)
+\pstriangle*(8.5,0)(0.2,1.5)
+\pstriangle*(9.5,0)(0.2,-2.5)
+\rput(8.5,2){3/4}
+\rput(9.5,-3){-5/4}
+\rput(8,-2){$c$}
+% deco
+\rput(3,0){+}
+\rput(7,0){=}
+\end{pspicture}
+\caption{\label{fig:picsinept}
+Intensités des pics obtenues par la séquence de la Figure \ref{fig:transmagheta}.
+$a$. contribution des noyaux $S$, $b$. contribution des noyaux $I$, $c$ résultat.}
+\end{center}
+\end{figure}
+
+Le spectre correspondant à l'évolution libre de $\sigma_4$ est un 
+doublet antiphase en dispersion d'intensité relative 1. 
+Le second terme de l'état initial, $a S_z$, commute avec tous les opérateurs 
+qui interviennent entre les instants 0 et 3 et reste donc inchangé jusque là. 
+L'impulsion $\pi/2$ sur $S$ le transforme en $-aS_y$ qui évolue ensuite pour 
+donner un doublet en phase et en dispersion d'intensité relative $-a$.
+Le spectre réellement observé, après correction de la phase 
+(présentation des raies en absorption) consiste en une paire de raies 
+d'intensités relatives $(1-a)$ et $(-1-a)$ soit 3/4 et -5/4 si a = 0,25
+(Figure \ref{fig:picsinept}). 
+En comparaison les intensités relatives des composantes du doublet qui 
+aurait été obtenu par la séquence impulsion-détection, 
+sans effect Overhauser ni découplage, valent $a$ et $a$. 
+
+L'étape-clé du transfert d'aimantation est la transformation 
+subie par le système sous l'action simultanée 
+(si on considère des impulsions de durée pratiquement nulle)
+des deux impulsions d'angle $\pi/2$ sur un état couplé du noyau $I$
+qui produit un état couplé du noyau $S$.
+L'intensité du signal de pulsation $\omss$ qui provient du 
+transfert d'aimantation est proportionnelle à l'aimantation initiale 
+du noyau $I$, plus importante que celle de $S$.
+
+Il doit nécessairement y avoir entre les phases des deux impulsions 
+appliquées aux noyaux $I$ un écart de $\pi/2$.
+Si la phase de la seconde impulsion était nulle :
+\begin{eqnarray}
+\sigma_2 & = & 2I_xS_z \\
+\sigma_3 & = & 2I_xS_z \quad \mbox{car $\sigma_2$ et $I_x$ commutent} \\
+\sigma_4 & = & -2I_xS_y
+\end{eqnarray}
+Cet état à 0 et 2 quanta évolue sans donner de signal, ce qui n'est
+pas le but recherché ici.
+
+Dans l'expérience décrite par la figure \ref{fig:transmagheta}, 
+le temps $T$ a été choisi égal à $1/2J$ pour que l'état non couplé
+$\sigma_1$ n'évolue seulement que vers un état couplé. 
+Dans la réalité il n'y a pas une valeur unique de $J$ mais une certaine dispersion
+autour d'une valeur moyenne (environ 145 Hz, si $S$ est un noyau de \carb).
+Dans le cas général $\sigma_2 = -\cos(\pi J T)I_y + \sin(\pi J T)2I_xS_z$.
+Le second terme conduit au signal souhaité, mais son intensité dépend de $\sin(\pi J T)$,
+qui vaut $\pm 1$ lorsque $\pi J T$ vaut $(2n+1)\pi/2$, c'est à dire lorsque $T$
+est un multiple impair de $1/2J$. 
+Le terme proportionnel à $I_y$ reste inchangé sous l'action de l'impulsion 
+$\pi/2_y(I)$; il ne contribue donc pas au signal enregistré aux fréquences du noyau $S$.
+
+\subsection{Lien avec le modèle vectoriel}
+
+\begin{figure}[hbt]
+\begin{center}
+\begin{pspicture}(-6,-5)(6,5)
+\SpecialCoor
+\rput(-3,2.5){
+\psline{->}(0.5;150)(2.5;-30)
+\psline{->}(0.5;270)(2.5;90)
+\psline{->}(0.5;30)(2.5;210)
+\uput[210](2.5;210){$X$}
+\uput[-30](2.5;-30){$Y$}
+\uput[90](2.5;90){$Z$}
+\psline[linewidth=0.08,doubleline=true,doublesep=0.05]{->}(0,0)(2;90)
+\uput[90](1.8;80){$\alpha$}
+\uput[90](1.8;100){$\beta$}
+\rput(-0.5,0){$O$}
+}
+\rput(0,2.5){
+\psline{->}(-1,0)(1,0)
+\rput(0,0.25){$\pi/2_x(I)$}
+}
+\rput(3,2.5){
+\psline{->}(0.5;150)(2.5;-30)
+\psline{->}(0.5;270)(2.5;90)
+\psline{->}(0.5;30)(2.5;210)
+\uput[210](2.5;210){$X$}
+\uput[-30](2.5;-30){$Y$}
+\uput[90](2.5;90){$Z$}
+\psline[linewidth=0.08,doubleline=true,doublesep=0.05]{->}(0,0)(2;150)
+\uput[150](1.8;140){$\alpha$}
+\uput[150](1.8;160){$\beta$}
+\rput(0.5,0){$O$}
+}
+\rput(6,2.5){
+\psline{->}(-1,0)(1,0)
+\rput(0,0.25){$T = 1/2J$}
+}
+\rput(-3,-2.5){
+\psline{->}(0.5;150)(2.5;-30)
+\psline{->}(0.5;270)(2.5;90)
+\psline{->}(0.5;30)(2.5;210)
+\uput[210](2.5;210){$X$}
+\uput[-30](2.5;-30){$Y$}
+\uput[90](2.5;90){$Z$}
+\psline[linewidth=0.08]{->}(0,0)(2;210)
+\uput[210](1.8;200){$\alpha$}
+\psline[linewidth=0.08]{->}(0,0)(2;30)
+\uput[30](1.8;20){$\beta$}
+\rput(-0.5,0){$O$}
+}
+\rput(0,-2.5){
+\psline{->}(-1,0)(1,0)
+\rput(0,0.25){$\pi/2_y(I)$}
+}
+\rput(3,-2.5){
+\psline{->}(0.5;150)(2.5;-30)
+\psline{->}(0.5;270)(2.5;90)
+\psline{->}(0.5;30)(2.5;210)
+\uput[210](2.5;210){$X$}
+\uput[-30](2.5;-30){$Y$}
+\uput[90](2.5;90){$Z$}
+\psline[linewidth=0.08]{->}(0,0)(2;90)
+\uput[90](1.8;80){$\alpha$}
+\psline[linewidth=0.08]{->}(0,0)(2;-90)
+\uput[-90](1.8;-80){$\beta$}
+\rput(-0.5,0){$O$}
+}
+\end{pspicture}
+
+\caption{\label{fig:transmagvec}
+\small Transfert d'aimantation selon le modèle vectoriel}
+\end{center}
+\end{figure}
+
+L'évolution de l'aimantation initiale des noyaux $I$ entre les
+instants 0 et 3 est retracée par la figure \ref{fig:transmagvec}.
+L'évolution pendant $T$ correspond à une rotation de 
+$\pm J/2 \cdot 1/2J = \pm1/4$ de tour, soit un angle de $\pm \pi/2$.
+La représentation vectorielle de l'état $2I_zS_z$ est constitée d'une paire
+de vecteurs opposés (donc de somme nulle).
+Le terme de l'état inital $\poli/2 \cdot I_z$ contribue aux populations
+($p_{\al\al}$, $p_{\al\be}$, $p_{\be\al}$, $p_{\be\be}$) pour 
+($\poli/4$, $\poli/4$, $-\poli/4$, $-\poli/4$) selon les équations
+\ref{eqn:popisa} à \ref{eqn:popisd}.
+L'état $\poli/2 \cdot 2I_zS_z$ contribue, d'après les mêmes équations
+pour ($\poli/4$, -$\poli/4$, $-\poli/4$, $\poli/4$) 
+aux populations des 4 états du système.
+Cela revient à dire que la séquence $\pi/2_x(I)$ -- $1/2J$ -- $\pi/2_y(I)$
+a inversé sélectivement les populations
+des états $\al\be$ et $\be\be$, ce correspond bien a l'inversion
+de la partie de l'aimantation de $I$ qui est étiquetée $\be$ en
+ce qui concerne l'état du noyau $S$.
+Après l'instant 3, l'intensité de la résonance de $S$ étiquetée $\al$
+est proportionnelle à $p_{\al\al}$ - $p_{\al\be} = \poli/2$.
+L'intensité de celle étiquetée $\be$ est $p_{\be\al}$ - $p_{\be\be} = -\poli/2$.
+En résumé, l'aimantation initiale de $I$ devient à l'instant 3 la source
+d'un doublet antiphase pour $S$, d'intensité totale certes nulle, mais dont
+chacune des composantes est plus intense (d'un facteur $\gi/\gs$) que
+les composantes en phase issues de l'aimantation initiale du noyau $S$.
+L'origine du transfert d'aimantation via l'état $2I_zS_z$
+peut être vue dans l'identité des membres de droite des équations
+\ref{eqn:izsza} et \ref{eqn:izszb}, identité qui permet de transférer les vecteurs
+opposés obtenus à l'instant 3 depuis le référentiel tournant des noyaux
+$I$ vers celui des noyaux $S$.
+
+\subsection{Le transfert INEPT}
+
+\begin{figure}[hbt]
+\begin{center}
+\begin{pspicture}(0,0)(9,6.5)
+% sequence I
+\rput(2,5){
+\psline(0,0)(7,0)
+\rput(-0.5,0){RF($I$)}
+\psline[linewidth=2mm]{-}(0.9,0)(0.9,1)
+\rput(0.9,1.2){$\phi_1$}
+\psline[linewidth=4mm]{-}(1.9,0)(1.9,1)
+\rput(1.9,1.2){$\phi_2$}
+\psline[linewidth=2mm]{-}(2.9,0)(2.9,1)
+\rput(2.9,1.2){$\phi_3$}
+\psline[linewidth=4mm]{-}(4.1,0)(4.1,1)
+\rput(4.1,1.2){$\phi_4$}
+\psframe(5.1,0)(6.5,0.8)
+\rput(5.8,0.4){Déc.}
+}
+% sequence S
+\rput(2,3.5){
+\psline(0,0)(7,0)
+\rput(-0.5,0){RF($S$)}
+\psline[linewidth=4mm]{-}(1.9,0)(1.9,1)
+\rput(1.9,1.2){$\phi_5$}
+\psline[linewidth=2mm]{-}(3.1,0)(3.1,1)
+\rput(3.1,1.2){$\phi_6$}
+\psline[linewidth=4mm]{-}(4.1,0)(4.1,1)
+\rput(4.1,1.2){$\phi_7$}
+\rput(5.1,0){
+\pscurve(0,0.5)(0.5,0.25)(1.5,0)
+\pscurve(0,-0.5)(0.5,-0.25)(1.5,0)
+\psline(0,0.5)(0,-0.5)
+}
+\rput(6,0.7){$\phi_R$}
+}
+% time marks
+\rput(2,2.5){
+\psline{->}(0,0)(7,0)
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(0.8,2.3)(0.8,-0.2)
+\rput(0.7,-0.4){0}
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(1,2.3)(1,-0.2)
+\rput(1.1,-0.4){1}
+\rput(1.4,0.5){$\frac{T}{2}$}
+\rput(2.4,0.5){$\frac{T}{2}$}
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(2.8,2.3)(2.8,-0.2)
+\rput(2.7,-0.4){2}
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(3,0.8)(3,-0.2)
+\rput(3,-0.4){3}
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(3.2,0.8)(3.2,-0.2)
+\rput(3.3,-0.4){4}
+\rput(3.6,0.5){$\frac{T'}{2}$}
+\rput(4.6,0.5){$\frac{T'}{2}$}
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(5.1,0.4)(5.1,-0.2)
+\rput(5.1,-0.4){5}
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(6,0.7)(6,-0.2)
+\rput(6,-0.4){$t$}
+}
+% coherence order of I
+\rput(2,1.5){
+\psline(0,0.25)(7,0.25)
+\rput(-0.5,0.3){$+1$}
+\psline(0,0)(7,0)
+\rput(-0.5,0){$0$}
+\psline(0,-0.25)(7,-0.25)
+\rput(-0.5,-0.3){$-1$}
+\psline[linewidth=0.8mm]{-}(0,0)(0.8,0)(1,0.25)(1.7,0.25)(2.1,-0.25)(2.8,-0.25)(3,0)(7,0)
+\psline[linewidth=0.8mm]{-}(0.8,0)(1,-0.25)(1.7,-0.25)(2.1,0.25)(2.8,0.25)(3,0)
+\rput(-1.5,0){$p(I)$}
+}
+% coherence order of S
+\rput(2,0.5){
+\psline(0,0.25)(7,0.25)
+\rput(-0.5,0.3){$+1$}
+\psline(0,0)(7,0)
+\rput(-0.5,0){$0$}
+\psline(0,-0.25)(7,-0.25)
+\rput(-0.5,-0.3){$-1$}
+\psline[linewidth=0.8mm]{-}(0,0)(3,0)(3.2,0.25)(3.9,0.25)(4.1,-0.25)(7,-0.25)
+\rput(-1.5,0){$p(S)$}
+}
+\end{pspicture}
+\caption{\label{fig:transmaghetb}
+Séquence INEPT et son chemin de transfert de cohérence.}
+\end{center}
+\end{figure}
+
+L'expérience qui vient d'être décrite présente deux défauts. 
+L'intensité des raies dépend de $\omsi$ selon $\cos(\omsi/2J)$
+comme le montrerait un calcul plus complet.
+Le découplage hétéronucléaire appliqué pendant la détection du {\FID}
+annulerait l'amélioration de l'intensité du signal acquise 
+grâce au transfert de polarisation : le terme $2I_zS_y$ ne fournit aucun signal 
+s'il y découplage pendant l'acquisition, seule reste l'évolution de $-aS_z$.
+
+Le remède à ces deux problèmes est le même et est apporté par l'introduction
+de deux séquences d'écho de spin de durée $T$, l'une avant, 
+et l'autre après l'étape de transfert d'aimantation (Figure \ref{fig:transmaghetb}).
+Ces échos concernent simultanément les noyaux $I$ et $S$.
+Ainsi, entre les instants 0 et 5, leurs offsets n'interviennent pas.
+L'état couplé de $S$ produit par le transfert d'aimantation
+est converti en un état non couplé pendant $T' = T = 1/2J$, état
+qui évolue à le seule fréquence $\omss$ pendant l'acquisition
+découplée des noyaux $I$.
+L'aimantation initiale de $S$ est transformée en aimantation
+antiphase qui reste indétectable pendant l'acquisition.
+
+\subsection{INEPT ou effet Overhauser ?}
+En RMN du \carb, l'augmentation de sensibilité obtenue par effet Overhauser est au plus
+d'un facteur 1 + $\gamma$(\prot)/2$\gamma$(\carb) = 3. 
+Celle apportée par la séquence INEPT est $\gamma$(\prot)/$\gamma$(\carb) = 4,
+à peine légèrement supérieure, surtout s'il est tenu compte de l'effet
+cumulatif des erreurs de calibration des impulsions et des effets d'offset.
+
+Sachant que $\gamma$(\prot)/$\gamma$(\azot) = -10, l'avantage de la séquence INEPT
+est clair puisque l'effet Overhauser ne peut fournir au plus qu'une amplification
+des signaux d'un facteur 4 (en valeur absolue).
+La réalisation pratique de spectres de RMN de l'\azot reste toutefois restreinte
+aux échantillons très concentrés car l'abondance naturelle de ce noyau
+n'est que 0,37 \%.
+
+\subsection{Programme de phase}
+Les phases des impulsions, de $\phi_1$ à $\phi_7$ sauf $\phi_3$,
+peuvent arbitrairement être toutes prises égales à $0$, et $\phi_3$ à $\pi/2$
+pour une raison exposée ci-dessus.
+L'impulsion de phase $\phi_1$ crée de l'aimantation transversale ($\pm 1$ quanta)
+de $I$, celle de phase $\phi_2$ inverse les ordres de cohérence et celle de
+phase $\phi_3$ transforme les cohérences en populations (0 quanta).
+A la suite de cela, l'impulsion de phase $\phi_6$ crée des états à $\pm 1$
+quanta de $S$. 
+Touefois seule la transition vers l'état où $p(S) = 1$ est matérialisé
+sur la figure \ref{fig:transmaghetb}.
+En effet, seul ce chemin conduit à de l'aimantation observable de $S$ ($p(S) = -1$)
+après inversion des ordres de cohérence par l'impulsion de phase $\phi_7$.
+Notons que les impulsions de phase $\phi_4$ et $\phi_5$ ne causent pas
+de changement d'ordre de cohérence.
+
+L'équation \ref{eqn:masterphase} relie les variations des phases des impulsions
+avec celles de la phase du récepteur qui conduisent à une addition cohérente des signaux
+et à l'élimination d'un certain nombre d'artefacts intrumentaux possibles, issus
+des imperfections du récepteur, de la calibration imparfaite des impulsions,
+des effets d'offset, ou de la durée approximative des délais.
+Le chemin de transfert de cohérence pour le noyau $S$ est sélectionné par :
+\begin{equation}
+\Delta\phi_R = 0\Delta\phi_5 - \Delta\phi_6 + 2\Delta\phi_7
+\end{equation}
+Si les trois phases des impulsions sur $S$
+sont augmentées simultanément de $\Delta\phi_{5,6,7}$, alors
+\begin{equation}
+\Delta\phi_R = \Delta\phi_{5,6,7}
+\end{equation}
+ce qui est nécessaire pour détecter l'aimantation transversale de $S$
+formée à partir de son aimantation longitudinale, qu'elle provienne
+du terme $aS_z$ ou de $I_z$ via le mécanisme de transfert.
+Le programme de phase minimum pourrait donc consister à fixer
+simultanément $\Delta\phi_R$, $\Delta\phi_5$, $\Delta\phi_6$ et $\Delta\phi_7$
+à $\Delta\phi_{5,6,7} = \pi/2$, bien que $\Delta\phi_{5,6,7} = \pi$ pourrait
+suffire, sachant que les pics issus du défaut de quadrature ont une
+intensité qui les rend généralement indétectables dans le bruit du spectre.
+De manière équivalente, il suffit de cycler identiquement les phases
+de $\phi_R$, $\phi_6$ et $\phi_7$.
+Le cyclage des phase $\phi_5$ et $\phi_7$ est susceptible de compenser les
+défauts de ces impulsions d'angle $\pi$, sans que cela fasse 
+ici l'objet d'une démonstration.
+
+\renewcommand{\baselinestretch}{1}
+\normalsize
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{ccccccccccccccccc}
+pas          &  1 &  2 &  3 &  4 &  5 &  6 &  7 &  8 \\
+             &  9 & 10 & 11 & 12 & 13 & 14 & 15 & 16 \\
+\hline
+$\phi_1$ (4) &  0 &  0 &  0 &  0 &  0 &  0 &  0 &  0 \\
+             &  2 &  2 &  2 &  2 &  2 &  2 &  2 &  2 \\
+$\phi_2$ (4) &  0 &  2 \\
+$\phi_3$ (4) &  1 &  1 &  3 &  3 \\
+$\phi_4$ (4) &  0 &  2 \\
+$\phi_5$ (4) &  0 &  2 \\
+$\phi_6$ (4) &  0 &  0 &  0 &  0 &  1 &  1 &  1 &  1 \\
+             &  2 &  2 &  2 &  2 &  3 &  3 &  3 &  3 \\
+$\phi_7$ (4) &  0 &  2 &  0 &  2 &  1 &  3 &  1 &  3 \\
+$\phi_R$ (4) &  0 &  0 &  2 &  2 &  1 &  1 &  3 &  3 \\
+\hline
+\end{tabular}
+\caption{\label{tab:inept}
+Programme de phase de l'expérience INEPT}
+\end{center}
+\end{table}
+\renewcommand{\baselinestretch}{1.5}
+\normalsize
+
+En ce qui concerne le noyau $I$, il serait par exemple possible
+de cycler $\phi_1$ indépendamment des autres phases.
+Pour garder les deux chemins correspondants à $\Delta p = +1$ et
+$\Delta p = -1$, soit $\Delta(\Delta p) = 2$, il faut choisir
+$\Delta \phi_1 = \pi$, comme indiqué par l'équation \ref{eqn:selectionphase}.
+Il en est de même pour $\phi_3$.
+Dans les deux cas $\phi_R$ reste inchangée.
+L'incrément de phase $\Delta \phi_2 = \pi/2$, et à 
+plus forte raison $\Delta \phi_2 = \pi$, préserve les deux chemins.
+où $\Delta p = +2$ et $\Delta p = -2$.
+Le fait d'imposer aussi $\phi_3 - \phi_1 = \pm \pi/2$ ne relève pas 
+de la théorie du programme de phase.
+Il n'est en effet pas suffisant de sélectionner un ou des chemins,
+il faut aussi que tous les transferts soient associés à un coefficient
+de transfert non nul pour qu'il signal soit détecté.
+
+Parmi les choix possibles, le programme de phase de la table \ref{tab:inept}
+satisfait aux nécessités énoncées ci-dessus.
+L'alternance des phases $\phi_2$, $\phi_4$, $\phi_5$ et $\phi_7$ des impulsions
+d'angle $\pi$ ne cause aucun changement de $\phi_R$ (pas pairs et impairs).
+L'inversion de $\phi_3$ entraîne celle de $\phi_R$ (pas 1 et 3, 2 et 4, etc...).
+L'augmentation simultanée de $\phi_6$ et $\phi_7$ de $\pi/2$ nécessite
+une augmentation identique de $\phi_R$ (pas 1 et 5, 2 et 6, etc...).
+Finalement, l'inversion de $\phi_1$ cause celle de $\phi_R$ (pas 1 et 9, 2 et 10, etc...).
+Le cyclage n'est pas total sur l'ensemble de toutes les impulsions pour
+que le programme de phase reste de dimension raisonnable
+tout en éliminant les causes principales d'artefacts.
+
+\subsection{Edition des spectres par la séquence INEPT}
+Un atome $S$ lié à aucun atome $I$ (un carbone quaternaire, par exemple)
+ne fournit aucun signal puisqu'une inversion de $\phi_1$ ou de $\phi_3$,
+à laquelle les noyaux $S$ est insensible, s'accompagne de l'inversion de
+$\phi_R$ et donc de la disparition du signal par soustraction.
+L'analyse du comportement d'un système $I_2S$ et $I_3S$ fait apparaître que
+si $T = T' = 1/2J(IS)$, la séquence INEPT produit un signal nul.
+Si $\pi J T' = \alpha$, l'intensité des signaux 
+issus des groupes $IS$, $I_2S$ et $I_3S$ dépend de $\alpha$ selon une
+loi qui leur est spécifique.
+Des combinaisons linéaires des spectres obtenus permettent de fabriquer
+des sous-spectres dans lesquelles n'apparaissent que les signaux
+des noyaux $S$ liés à 1, 2 ou 3 de noyaux $I$.
+L'opération ainsi effectuée s'appelle "édition des spectres".
+
+\begin{figure}[hbt]
+\begin{center}
+\begin{pspicture}(0,0)(7,4.5)
+% sequence I
+\rput(1,3){
+\psline(0,0)(6,0)
+\rput(-0.5,0){RF($I$)}
+\psline[linewidth=2mm]{-}(0.9,0)(0.9,1)
+\rput(0.9,1.2){$x$}
+\psline[linewidth=2mm]{-}(2.9,0)(2.9,1)
+\rput(2.9,1.2){$y$}
+\psframe(4.1,0)(5.5,0.8)
+\rput(4.8,0.4){Déc.}
+}
+% sequence S
+\rput(1,1.5){
+\psline(0,0)(6,0)
+\rput(-0.5,0){RF($S$)}
+\psline[linewidth=2mm]{-}(3.1,0)(3.1,1)
+\rput(3.1,1.2){$-x$}
+\rput(4.1,0){
+\pscurve(0,0.5)(0.5,0.25)(1.5,0)
+\pscurve(0,-0.5)(0.5,-0.25)(1.5,0)
+\psline(0,0.5)(0,-0.5)
+}
+\rput(5,0.7){$\phi_R$}
+}
+% time marks
+\rput(1,0.5){
+\psline{->}(0,0)(6,0)
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(0.8,2.3)(0.8,-0.2)
+\rput(0.7,-0.4){0}
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(1,2.3)(1,-0.2)
+\rput(1.1,-0.4){1}
+\rput(1.9,0.5){$T$}
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(2.8,2.3)(2.8,-0.2)
+\rput(2.7,-0.4){2}
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(3,0.8)(3,-0.2)
+\rput(3,-0.4){3}
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(3.2,0.8)(3.2,-0.2)
+\rput(3.3,-0.4){4}
+\rput(3.65,0.5){$T'$}
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(4.1,0.4)(4.1,-0.2)
+\rput(4.1,-0.4){5}
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(5,0.7)(5,-0.2)
+\rput(5,-0.4){$t$}
+}
+\end{pspicture}
+\caption{\label{fig:ineptsimple}
+Séquence INEPT simplifiée pour l'analyse de l'édition spectrale.}
+\end{center}
+\end{figure}
+
+Pour simplifier le travail d'analyse, la séquence de la figure \ref{fig:ineptsimple}
+sera considérée, en imposant de plus $\omss = 0$ et $\omsi = 0$
+puisque les échos de spin de la figure \ref{fig:transmaghetb} ont été supprimés.
+Seule l'aimantation initiale des noyaux $I$ sera prise en compte sachant que celle
+des noyaux $S$ produit un signal qui est éliminé par le programme de phases.
+
+\subsubsection{Système $IS$}
+A l'instant 4 l'état du système est décrit par l'équation \ref{eqn:fintransmag}.
+Ainsi :
+\begin{equation}
+\sigma_5 = - 2I_zS_y \ca + S_x \sa
+\end{equation}
+sachant que par commodité d'écriture la phase de l'impulsion sur $S$ a été inversée.
+La partie $\sigma_5'$ de $\sigma_5$ qui contribue au signal mesurable pendant
+le découplage des noyaux $I$ est 
+\begin{equation}
+\sigma_5' (IS) = \sa S_x
+\end{equation}
+et qui fournit un signal d'intensité maximale quand $\alpha = \pi/2$.
+
+\subsubsection{Système $I_2S$}
+Ce système sera traité comme un système $II'S$ où $\Omega_{I'} = 0$,
+$J_{II'} = 0$ et $J_{I'S} = J_{IS} = J$.
+De l'état initial
+\begin{equation}
+\sigma_0 = I_z + I'_z + aS_z
+\end{equation}
+seule l'évolution du premier terme sera analysée, sachant que celle du second terme
+est identique par symétrie entre $I$ et $I'$ et que celle du troisième
+ne contribue pas au signal.
+Comme pour le système $IS$, $\sigma_4 = -2I_zS_y$.
+Pendant $T'$, ce terme évolue sous l'action de $\alpha 2I_zS_z$ et de $\alpha 2I'_zS_z$
+puisqu'aucun de ces deux opérateur ne commute avec $\sigma_4$.
+Pour que de l'aimantation non couplée de $S$ soit produite à l'instant 5, il faut
+ne considérer que la production d'un terme $S_x$ par action de $\alpha 2I_zS_z$ sur
+$\sigma_4$ puis la conservation de ce terme $S_x$ par action de $\alpha 2I'_zS_z$:
+\begin{equation}
+-2I_zS_y \flham{\alpha 2I_zS_z} \sa S_x + \cdots \flham{\alpha 2I'_zS_z} \sa\ca S_x + \cdots
+\end{equation}
+L'addition des contributions des noyaux $I$ et $I'$ aboutit à
+\begin{equation}
+\sigma_5' (I_2S) = 2\sa\ca S_x
+\end{equation}
+qui est bien nulle si $T' = T$ puisque dans ce cas $\alpha = \pi/2$ et donc $\sa = 0$.
+
+\subsubsection{Système $I_3S$}
+Ce système sera traité comme un système $II'I"S$ où $\Omega_{I'} = \Omega_{I"} = 0$,
+$J_{II'} = J_{II"} = J_{I'I"} = 0$ et $J_{I"S} = J_{I'S} = J_{IS} = J$.
+La démarche exposée pour un système $I_2S$ s'étend sans difficulté au système $I_3S$.
+Ainsi :
+\begin{equation}
+\sigma_5' (I_3S) = 3\cos^2\alpha\sa S_x
+\end{equation}
+
+Si $\alpha = \pi/4$ alors les signaux des systèmes $IS$, $I_2S$ et $I_3S$
+fournissent des pics spectraux d'intensités toutes de même signe, si
+$\alpha = \pi/2$, seuls les pics des systèmes $IS$ sont visibles, et enfin
+si $\alpha = 3\pi/4$ les intensités des pics des groupes $I_2S$ sont de signe opposé
+à ceux des groupes $IS$ et $I_3S$.
+L'enregistrement de trois spectres avec $\alpha = \pi/4$, $\pi/2$ et $3\pi/4$
+permet donc de déterminer le nombre de noyaux $I$ attachés au noyau $S$.
+Si ce nombre est nul, l'expérience impulsion -- détection permet de visualiser
+les signaux correspondants.
+L'expérience INEPT n'est généralement pas utilisée pour ses possibilités
+d'édition spectrale car toutes les valeurs de $J$ ne sont pas identiques
+dans une molécule donnée.
+La dispersion des valeurs de $J$ conduit à des spectres difficiles à phaser
+et les méthodes utilisées sont soit l'enregistrement de spectres $J$-modulés
+ou de spectres DEPT.
+Toutefois, les considérations développées ci-dessus 
+ne sont pas inutiles car elles montrent que l'aimantation
+transversale des noyaux $S$ évolue de manières distinctes selon le
+nombre de noyaux $I$ attachés.
+De plus, le transfert d'aimantation INEPT est un élément présent dans de nombreuses
+séquences impulsionnelles en RMN 2D hétéronucléaire.
+
+\section{Spectres DEPT}
+Les séquences INEPT et DEPT sont l'une comme l'autre utilisables
+pour éditer des sous-spectres de noyaux $S$ en fonction du nombre de noyaux $I$ voisins. 
+La séquence DEPT (Distortionless Enhancement by Polarisation Transfer)
+présente l'avantage de n'être que peu sensible à la dispersion
+des valeurs des constantes de couplage $J_{IS}$.
+Elle est aussi basée sur le transfert d'aimantation des noyaux $I$ vers les noyaux $S$.
+L'analyse de son fonctionnement sera effectuée d'abord sur une version simplifiée
+pour laquelle il est nécessaire de considérer $\omsi = \omss = 0$
+(Fig. \ref{fig:deptsimple}).
+
+\begin{figure}[hbt]
+\begin{center}
+\begin{pspicture}(0,0)(10,4.5)
+% sequence I
+\rput(1,3){
+\psline(0,0)(9,0)
+\rput(-0.5,0){RF($I$)}
+\psline[linewidth=2mm]{-}(1,0)(1,1)
+\rput(1,1.2){$\pi/2_x$}
+\psline[linewidth=2mm]{-}(5,0)(5,1)
+\rput(5,1.2){$\alpha_y$}
+\psframe(6.9,0)(8.5,0.8)
+\rput(7.7,0.4){Déc.}
+}
+% sequence S
+\rput(1,1.5){
+\psline(0,0)(9,0)
+\rput(-0.5,0){RF($S$)}
+\psline[linewidth=2mm]{-}(3,0)(3,1)
+\rput(3,1.2){$\pi/2_x$}
+\rput(6.9,0){
+\pscurve(0,0.5)(0.5,0.25)(1.5,0)
+\pscurve(0,-0.5)(0.5,-0.25)(1.5,0)
+\psline(0,0.5)(0,-0.5)
+}
+\rput(8,0.7){$\phi_R$}
+}
+% time marks
+\rput(1,0.5){
+\psline{->}(0,0)(9,0)
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(0.9,2.3)(0.9,-0.2)
+\rput(0.8,-0.4){0}
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(1.1,2.3)(1.1,-0.2)
+\rput(1.2,-0.4){1}
+\rput(2,0.5){$1/2J$}
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(2.9,0.8)(2.9,-0.2)
+\rput(2.8,-0.4){2}
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(3.1,0.8)(3.1,-0.2)
+\rput(3.2,-0.4){3}
+\rput(4,0.5){$1/2J$}
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(4.9,2.3)(4.9,-0.2)
+\rput(4.8,-0.4){4}
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(5.1,2.3)(5.1,-0.2)
+\rput(5.2,-0.4){5}
+\rput(6,0.5){$1/2J$}
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(6.9,0.4)(6.9,-0.2)
+\rput(6.9,-0.4){6}
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(8,0.7)(8,-0.2)
+\rput(8,-0.4){$t$}
+}
+\end{pspicture}
+\caption{\label{fig:deptsimple}
+Séquence DEPT simplifiée}
+\end{center}
+\end{figure}
+
+Quel que soit le nombre de noyaux $I$ liés au noyau $S$, l'aimantation
+de chaque noyau $I$ est produit un état à 0 et $\pm2$ quanta à l'instant 3 :
+\begin{eqnarray}
+\sigma_0 & = & I_z \\
+\sigma_1 & = & -I_y \\
+\sigma_2 & = & 2I_xS_z \\
+\sigma_3 & = & -2I_xS_y
+\end{eqnarray}
+
+L'effet du second délai $1/2J$ est de produire des états à 0 et $\pm2$ quanta
+couplés des noyaux $I'$ et $I"$ quand ceux-ci existent.
+Notons que $\sigma_3$ commute avec $2I_zS_z$.
+Ainsi :
+
+\begin{eqnarray}
+\mbox{Système} & & \sigma_4 \nonumber\\
+IS & : & -2I_xS_y \\
+I_2S & : & +4I_xI'_zS_x \\
+I_3S & : & +8I_xI'_zI''_zS_y
+\end{eqnarray}
+
+Il faut que la seconde impulsion sur les noyaux $I$ soit de phase $y$ pour
+que $\sigma_5$ et donc $\sigma_6$ soit un état à zéro quanta de $I$.
+L'angle de cette impulsion pouvant être de valeur arbitraire, seule la partie de $\sigma_5$
+qui est à 0 quanta pour $I$ sera conservée dans la suite du calcul.
+La transformation de $I_x$ en $I_z$ est liée à un coefficient multiplicatif $\sa$,
+alors que la préservation de $I'_z$ ou de $I''_z$ est liée à $\ca$ : 
+\begin{eqnarray}
+\mbox{Système} & & \sigma_5 \nonumber\\
+IS & : & + \sa \cdot 2I_zS_y + \cdots \\
+I_2S & : & - \sa\ca \cdot 4I_zI'_zS_x + \cdots \\
+I_3S & : & - \sa\cos^2\alpha \cdot 8I_zI'_zI''_zS_y + \cdots
+\end{eqnarray}
+Pendant le troisième délai, l'action du ou des couplages conduit à l'état non
+couplé $S_x$ modulé par la valeur de l'angle $\alpha$ :
+\begin{eqnarray}
+\mbox{Système} & & \sigma_6 \nonumber\\
+IS & : & - \sa \cdot S_x + \cdots \\
+I_2S & : & + \sa\ca \cdot S_x + \cdots \\
+I_3S & : & - \sa\cos^2\alpha \cdot S_x + \cdots
+\end{eqnarray}
+
+\begin{figure}[hbt]
+\begin{center}
+\begin{pspicture}(0,0)(11,6.5)
+% sequence DEPT
+\rput(1,2){
+% sequence I
+\rput(1,3){
+\psline(0,0)(9,0)
+\rput(-0.5,0){RF($I$)}
+\psline[linewidth=2mm]{-}(1,0)(1,1)
+\rput(1,1.2){$\pi/2_x$}
+\psline[linewidth=4mm]{-}(3,0)(3,1)
+\rput(3,1.2){$\pi$}
+\psline[linewidth=2mm]{-}(5,0)(5,1)
+\rput(5,1.2){$\alpha_y$}
+\psframe(6.9,0)(8.5,0.8)
+\rput(7.7,0.4){Déc.}
+}
+% sequence S
+\rput(1,1.5){
+\psline(0,0)(9,0)
+\rput(-0.5,0){RF($S$)}
+\psline[linewidth=2mm]{-}(3,0)(3,1)
+\rput(3,1.2){$\pi/2_x$}
+\psline[linewidth=4mm]{-}(5,0)(5,1)
+\rput(5,1.2){$\pi$}
+\rput(6.9,0){
+\pscurve(0,0.5)(0.5,0.25)(1.5,0)
+\pscurve(0,-0.5)(0.5,-0.25)(1.5,0)
+\psline(0,0.5)(0,-0.5)
+}
+\rput(8,0.7){$\phi_R$}
+}
+% time marks
+\rput(1,0.5){
+\psline{->}(0,0)(9,0)
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(0.9,2.3)(0.9,-0.2)
+\rput(0.8,-0.4){0}
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(1.1,2.3)(1.1,-0.2)
+\rput(1.2,-0.4){1}
+\rput(2,0.5){$1/2J$}
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(2.9,0.8)(2.9,-0.2)
+\rput(2.8,-0.4){2}
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(3.1,0.8)(3.1,-0.2)
+\rput(3.2,-0.4){3}
+\rput(4,0.5){$1/2J$}
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(4.9,0.8)(4.9,-0.2)
+\rput(4.8,-0.4){4}
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(5.1,0.8)(5.1,-0.2)
+\rput(5.2,-0.4){5}
+\rput(6,0.5){$1/2J$}
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(6.9,0.4)(6.9,-0.2)
+\rput(6.9,-0.4){6}
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(8,0.7)(8,-0.2)
+\rput(8,-0.4){$t$}
+}
+}
+% p(I)
+\rput(2,1.5){
+\psline(0,0.25)(9,0.25)
+\rput(-0.5,0.3){$+1$}
+\psline(0,0)(9,0)
+\rput(-0.5,0){$0$}
+\psline(0,-0.25)(9,-0.25)
+\rput(-0.5,-0.3){$-1$}
+\psline[linewidth=0.8mm]{-}(0,0)(0.9,0)(1.1,0.25)(2.8,0.25)(3.2,-0.25)(4.9,-0.25)(5.1,0)(9,0)
+\psline[linewidth=0.8mm]{-}(0.9,0)(1.1,-0.25)(2.8,-0.25)(3.2,0.25)(4.9,0.25)(5.1,0)
+\rput(-1.5,0){$p(I)$}
+}
+% p(S)
+\rput(2,0.5){
+\psline(0,0.25)(9,0.25)
+\rput(-0.5,0.3){$+1$}
+\psline(0,0)(9,0)
+\rput(-0.5,0){$0$}
+\psline(0,-0.25)(9,-0.25)
+\rput(-0.5,-0.3){$-1$}
+\psline[linewidth=0.8mm]{-}(0,0)(2.9,0)(3.1,0.25)(4.8,0.25)(5.2,-0.25)(9,-0.25)
+\rput(-1.5,0){$p(S)$}
+}
+\end{pspicture}
+\caption{\label{fig:dept}
+Séquence DEPT complète}
+\end{center}
+\end{figure}
+
+La séquence complète (Fig. \ref{fig:dept}) se distingue de la séquence simplifiée
+par la présence d'impulsions de refocalisation situées au milieu
+des périodes d'évolution de l'aimantation transversale des noyaux
+$I$ (entre les instants 1 et 4) et $S$ (instants 3 et 6).
+Le résultat produit par cette séquence d'impulsions est alors indépendant
+des valeurs de $\omsi$ et $\omss$.
+Le calcul de $\sigma_6$ à partir de $\sigma_5$ fait aussi apparaître une inversion de
+signe pour les systèmes $IS$ et $I_3S$.
+Dans ces deux cas, $\sigma_5$ contient la matrice de base $S_y$ dont le signe
+est inversé par application de l'opérateur $\pi S_x$.
+En tenant compte du fait que chaque noyau de type $I$ contribue au signal $s(t)$ et
+donc au spectre mesuré, l'intensité relative du pic produit par le noyau $S$ 
+d'un système $I_nS$ est proportionnelle à $n\sa\cos^{n-1}\alpha$.
+
+Pratiquement, il faut enregistrer trois spectres $S(\pi/4)$, $S(\pi/2)$ et $S(3\pi/4)$.
+Si $S_1$, $S_2$ et $S_3$ désignent les spectres issus des systèmes
+$IS$, $I_2S$ et $I_3S$ de la substance étudiée, considérés séparément et affectés des
+coefficients 1, 2 et 3, alors
+\begin{equation}
+\label{eqn:mixdept}
+S(\alpha) = \sum_{n=1}^3\sa\cos^{n-1}\alpha \cdot S_n = \sum_{n=1}^3 c_n(\alpha) S_n
+\end{equation}
+Les coefficients $c_n(\alpha)$ sont donnés dans la table \ref{tab:mixdept}
+
+\begin{figure}[hbt]
+\begin{center}
+\begin{tabular}{c|ccc}
+$c_n(\alpha)$  & 1 & 2 & 3 \\
+\hline
+$\pi/4$ & $\sqrt{2}/2$ & 1/2 & $\sqrt{2}/4$ \\
+$\pi/2$ & 1 & 0 & 0 \\
+$3\pi/4$ & $\sqrt{2}/2$ & -1/2 & $\sqrt{2}/4$
+\end{tabular}
+\caption{\label{tab:mixdept}
+Intensités relatives $c_n(\alpha)$ des pics fournis par la séquence DEPT}
+\end{center}
+\end{figure}
+
+L'édition spectrale consiste à inverser l'équation \ref{eqn:mixdept} par application
+de l'équation \ref{eqn:unmixdept}:
+\begin{equation}
+\label{eqn:unmixdept}
+S_n = \sum_{n=1}^3 d_n(\alpha) S(\alpha)
+\end{equation}
+où les coefficients $d_n(\alpha)$ sont fournis par la table \ref{tab:unmixdept}.
+
+\begin{figure}[hbt]
+\begin{center}
+\begin{tabular}{c|ccc}
+$d_n(\alpha)$  & $\pi/4$ & $\pi/2$ & $3\pi/4$ \\
+\hline
+1 & 0 & 1 & 0 \\
+2 & 1 & 0 & -1 \\
+3 & $\sqrt{2}$ & -2 & $\sqrt{2}$
+\end{tabular}
+\caption{\label{tab:unmixdept}
+Édition spectrale par combinaison de spectres DEPT}
+\end{center}
+\end{figure}
+
+Dans les conditions réelles d'utilisation, les impulsions peuvent ne pas être
+parfaitement calibrées.
+Les coeffients $c_n(\alpha)$ sont alors différents de ceux donnés dans la table
+\ref{tab:mixdept}.
+L'édition spectrale requiert alors un ajustement manuel des coefficients $d_n(\alpha)$
+de la table \ref{tab:unmixdept}.
+
+Le spectre $S(3\pi/4)$ aussi appelé spectre DEPT-135 ($3\pi/4 = 135^{\circ}$) contient
+souvent l'information recherchée, pour peu que les valeurs des déplacements
+chimiques des noyaux $S$ ou qu'un spectre 2D permette de distinguer les systèmes
+$IS$ des systèmes $I_3S$.
+Il n'est pas alors nécessaire de recourir à la procédure DEPT dans son ensemble.
+
+\section{Spectre $J$-modulé}
+La séquence d'impulsions $J$-modulée \ref{fig:jmod}
+permet de discriminer les systèmes de spins
+$I_nS$ selon la parité de $n$, $n=0$ inclus.
+Elle donne la même information que le séquence DEPT-135, avec l'avantage
+supplémentaire de faire apparaître les signaux des noyaux $S$ isolés.
+
+\begin{figure}[hbt]
+\begin{center}
+\begin{pspicture}(0,0)(10,4.5)
+% sequence I
+\rput(1,3){
+\psline(0,0)(9,0)
+\rput(-0.5,0){RF($I$)}
+\psframe(1,0)(2.9,0.8)
+\rput(2,0.4){Sat.}
+\psframe(5.2,0)(8.5,0.8)
+\rput(6.9,0.4){Déc.}
+}
+% sequence S
+\rput(1,1.5){
+\psline(0,0)(9,0)
+\rput(-0.5,0){RF($S$)}
+\psline[linewidth=2mm]{-}(3,0)(3,1)
+\rput(3,1.2){$\pi/2_x$}
+\psline[linewidth=4mm]{-}(5,0)(5,1)
+\rput(5,1.2){$\pi_x$}
+\rput(6.9,0){
+\pscurve(0,0.5)(0.5,0.25)(1.5,0)
+\pscurve(0,-0.5)(0.5,-0.25)(1.5,0)
+\psline(0,0.5)(0,-0.5)
+}
+\rput(8,0.7){$\phi_R$}
+}
+% time marks
+\rput(1,0.5){
+\psline{->}(0,0)(9,0)
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(2.9,0.8)(2.9,-0.2)
+\rput(2.8,-0.4){0}
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(3.1,0.8)(3.1,-0.2)
+\rput(3.2,-0.4){1}
+\rput(4,0.5){$1/J$}
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(4.8,0.8)(4.8,-0.2)
+\rput(4.8,-0.4){2}
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(5.2,0.8)(5.2,-0.2)
+\rput(5.2,-0.4){3}
+\rput(6,0.5){$1/J$}
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(6.9,0.4)(6.9,-0.2)
+\rput(6.9,-0.4){4}
+\psline[linewidth=0.25mm,linestyle=dashed]{-}(8,0.7)(8,-0.2)
+\rput(8,-0.4){$t$}
+}
+\end{pspicture}
+\caption{\label{fig:jmod}
+Séquence $J$-modulée}
+\end{center}
+\end{figure}
+
+Les noyaux $S$ dipolairement couplés aux noyaux $I$ voient leur
+aimantation d'équilibre augmentée par l'effet Overhauser dû
+à la saturation de l'aimantation des noyaux $I$.
+
+Un noyau $S$ non couplé scalairement va subir un écho de spin d'hamiltonien effectif nul :
+\begin{eqnarray}
+\sigma_0 & = & S_z \\
+\sigma_1 & = & -S_y \\
+\sigma_4 & = & S_y
+\end{eqnarray}
+Il n'est pas possible d'appliquer directement la règle de l'hamiltonien moyen
+si le noyau $S$ est couplé à un ou plusieurs noyaux $I$ puisque l'écho
+n'est pas de structure symétrique par rapport à l'impulsion de refocalisation.
+En prenant l'exemple d'un système $I_3S$, la succession des opérateurs qui
+agissent entre les instants 1 et 4 est :
+\begin{equation}
+\flham{\pi \cdot 2I_zS_z} \quad \flham{\pi \cdot 2I'_zS_z} 
+\quad \flham{\pi \cdot 2I''_zS_z} 
+\quad \flham{\omss/J \cdot S_z} \quad \flham{\pi \cdot S_x} 
+\quad \flham{\omss/J \cdot S_z}
+\end{equation}
+Chacun des trois premiers opérateurs changent le signe de $\sigma_1$.
+Les trois derniers opérateurs constituent un écho de spin comme si $S$ était isolé.
+En conséquence, tout se passe comme si les opérateurs
+\begin{equation}
+\flham{\pi \cdot 2I_zS_z} \quad \flham{\pi \cdot 2I'_zS_z} \quad \flham{\pi \cdot 2I''_zS_z} 
+\quad \flham{\pi \cdot S_x}
+\end{equation}
+agissent sur $\sigma_1 = -S_y$.
+
+La généralisation aux systèmes $IS$ et $I_2S$ est immédiate et conduit à :
+\begin{eqnarray}
+\mbox{Système} & & \sigma_4 \nonumber\\
+S & : & + S_y \\
+IS & : & - S_y \\
+I_2S & : & + S_y \\
+I_3S & : & - S_y
+\end{eqnarray}
+Les signes des pics spectraux de deux noyaux $S$ sont opposés lorsque les parités des nombres
+de noyaux $I$ avec qui ils couplent sont différentes.
+
+Le programme de phase de l'expérience $J$-modulée est celui d'une séquence
+d'écho de spin, comme décrit dans le tableau 
+\ref{tab:impechodetec}, page \pageref{tab:impechodetec}.
+

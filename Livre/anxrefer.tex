@@ -1,0 +1,168 @@
+\chapter{Référentiel tournant}
+\label{chap:refer}
+
+Le référentiel tournant, défini au paragraphe \ref{sec:rf}, tourne
+autour de l'axe $Oz$ du référentiel du laboratoire à la fréquence $\omrf$,
+fréquence des impulsions de radio-fréquence appliquées à l'échantillon
+(figure \ref{fig:refer}).
+Ce changement de repère est introduit pour faciliter la résolution de
+l'équation \ref{eqn:blochrf1} :
+\begin{equation}
+\label{eqn:rf}
+\frac{\mbox{d}\aimvec}{\mbox{d}t} =
+\gamma \aimvec \wedge (\bzerovec + \bunvect)
+\end{equation}
+
+Les vecteurs de base $\iprimvec$, $\jprimvec$ et $\kprimvec$ du référentiel tournant
+se déduisent des vecteurs de base $\ivec$, $\jvec$ et $\kvec$
+du référentiel du laboratoire par les relations :
+\begin{eqnarray}
+\iprimvec & = & \cos(\omrft) \cdot \ivec + \sin(\omrft) \cdot \jvec \nonumber\\
+\label{eqn:fix2mob}
+\jprimvec & = & - \sin(\omrft) \cdot \ivec + \cos(\omrft) \cdot \jvec \\
+\kprimvec & = & \kvec \nonumber
+\end{eqnarray}
+Les formules de transformation inverse s'écrivent :
+\begin{eqnarray}
+\ivec & = & \cos(\omrft) \cdot \iprimvec - \sin(\omrft) \cdot \jprimvec \nonumber\\
+\label{eqn:mob2fix}
+\jvec & = & - \sin(\omrft) \cdot \iprimvec + \cos(\omrft) \cdot \jprimvec \\
+\kvec & = & \kprimvec \nonumber
+\end{eqnarray}
+Le signe de $\omrf$ est choisi de manière à ce que le référentiel tournant
+évolue dans le même sens que la précession de Larmor.
+
+Les coordonnées du vecteur $\aimvec$ sont définies dans le repère fixe 
+et dans le repère tournant par :
+\begin{eqnarray}
+\aimvec & = & \aimxs \cdot \ivec + \aimys \cdot \jvec + \aimzs \cdot \kvec \\
+\aimvec & = & \aimxs' \cdot \iprimvec + \aimys' \cdot \jprimvec + \aimzs' \cdot \kprimvec
+\end{eqnarray}
+La variation d'un vecteur au cours du temps dépend du repère où elle est considérée. 
+Ainsi un vecteur fixe dans le référentiel tournant (solidaire des axes $OX$, $OY$ et $OZ$) 
+varie dans le référentiel du laboratoire.
+Le signe prime ($'$) sera utilisé par la suite pour désigner la dérivée
+par rapport au temps d'une grandeur vectorielle, considérée dans le référentiel tournant.
+
+Pour évaluer $\derivttxt{\aimvec}$ dans le référentiel
+du laboratoire, membre de gauche de l'équation \ref{eqn:rf},
+à partir des coordonnées de $\aimvec$
+dans le référentiel tournant il faut tenir compte de la variation 
+des vecteurs de base de ce dernier dans le référentiel du laboratoire.
+Pour cela, il faut exprimer $\aimvec$ dans le référentiel tournant :
+\begin{eqnarray}
+\derivt{\aimvec} & = &
+\derivt{\aimxs'} \cdot \iprimvec + 
+\aimxs' \cdot \derivt{\iprimvec} \nonumber\\
+&  & + \derivt{\aimys'} \cdot \jprimvec + 
+\aimys' \cdot \derivt{\jprimvec} \nonumber\\
+\label{eqn:derivvec} &  & + \derivt{\aimzs'} \cdot \kprimvec + 
+\aimzs' \cdot \derivt{\kprimvec}
+\end{eqnarray}
+
+La dérivée de $\aimvec$ par rapport au temps, calculée dans le référentiel tournant, n'est autre que :
+\begin{eqnarray}
+\left(\derivt{\aimvec}\right)' & = &
+\derivt{(\aimxs'\cdot\iprimvec+\aimys'\cdot\jprimvec+\aimzs'\cdot\kprimvec)}
+\nonumber\\
+\label{eqn:derivvec1}
+& = & \derivt{\aimxs'} \cdot \iprimvec +
+\derivt{\aimys'} \cdot \jprimvec +
+\derivt{\aimys'} \cdot \jprimvec +
+\derivt{\aimzs'} \cdot \kprimvec
+\end{eqnarray}
+et qui est bien différente de la dérivée de $\aimvec$ vue dans le référentiel
+du laboratoire.
+La différence entre les deux fait intervenir les dérivées des vecteurs
+de base du référentiel tournant vues dans le référentiel du laboratoire.
+Ces dérivées se calculent aisément à partir des équations \ref{eqn:fix2mob} :
+\begin{eqnarray}
+\derivt{\iprimvec} & = & -\omrf\sin(\omrft)\cdot\ivec +
+\omrf\cos(\omrft)\cdot\jvec = +\omrf\cdot\jprimvec \nonumber\\
+\derivt{\jprimvec} & = & -\omrf\cos(\omrft)\cdot\ivec -
+\omrf\sin(\omrft)\cdot\jvec = -\omrf\cdot\iprimvec \\
+\derivt{\kprimvec} & = & 0 \nonumber
+\end{eqnarray}
+Ainsi :
+\begin{eqnarray}
+\aimx' \cdot \derivt{\iprimvec} +
+\aimy' \cdot \derivt{\jprimvec} +
+\aimz' \cdot \derivt{\kprimvec} & = &
+-\omrf\aimy'\cdot\iprimvec + \omrf\aimx'\cdot\jprimvec \nonumber\\
+\label{eqn:derivvec2} & = & (\omrf\kvec) \wedge \aimvec
+\end{eqnarray}
+En reportant les résultats \ref{eqn:derivvec1} et \ref{eqn:derivvec2} dans
+\ref{eqn:derivvec} on obtient
+\begin{equation}
+\derivt{\aimvec} = \left(\derivt{\aimvec}\right)'
++ (\omrf\kvec) \wedge \aimvec
+\end{equation}
+
+La partie du champ $\bunvect$ qui tourne dans le même sens
+que le mouvement de précession de Larmor
+(équation \ref{eqn:bunvect}) s'exprime dans le référentiel tournant
+à l'aide des équations de transformation \ref{eqn:mob2fix} :
+\begin{eqnarray}
+\bunvect & = & \bunmax\cos(\omrft+\phi)(\cos(\omrft)\cdot\iprimvec-\sin(\omrft)\cdot\jprimvec)
+\nonumber\\
+& & + \bunmax\sin(\omrft+\phi)(\sin(\omrft)\cdot\iprimvec+\cos(\omrft)\cdot\jprimvec) \\
+& = & \bunmax(\cos(\omrft+\phi)\cos(\omrft) + \sin(\omrft+\phi)\sin(\omrft))\cdot\iprimvec
+\nonumber\\
+& & + \bunmax(-\cos(\omrft+\phi)\sin(\omrft) + \sin(\omrft+\phi)\cos(\omrft))\cdot\jprimvec
+\nonumber\\
+& = & \bunmax(\cos\phi\cdot\iprimvec+\sin\phi\cdot\jprimvec)
+\end{eqnarray}
+
+Comme attendu, $\bunvect$ est immobile dans le référentiel tournant.
+L'angle de phase $\phi$ de l'impulsion est l'angle constant que fait $\bunvec$ avec l'axe $OX$.
+Le vecteur unitaire colinéaire avec $\bunvec$ dans le référentiel tournant sera noté 
+$\uvec$ :
+\begin{equation}
+\uvec = \cos\phi \cdot \iprimvec + \sin\phi \cdot \jprimvec
+\end{equation}
+conduisant à
+\begin{equation}
+\bunvect = \bunmax\uvec
+\end{equation}
+où la dépendance de $\bunvec$ en fonction du temps réside dans le fait
+que $\uvec$ tourne par rapport au référentiel du laboratoire.
+
+En posant
+\begin{equation}
+\omega_0 = -\gamma\buns \qetq \omuns = -\gamma\bunmax
+\end{equation}
+l'équation \ref{eqn:rf} retranscrite dans le référentiel tournant devient :
+\begin{equation}
+\left(\derivt{\aimvec}\right)' + \omrf\cdot\kvec\wedge\aimvec = 
+\left(\frac{\mbox{d}\aimvec}{\mbox{d}t}\right)' + \omrf\cdot\kvec\wedge\aimvec = 
+- \aimvec\wedge (\omega_0\cdot\kvec + \omuns\cdot\uvec)
+\end{equation}
+soit encore 
+\begin{equation}
+\left(\derivt{\aimvec}\right)' =
+-\aimvec\wedge((\omega_0-\omrf)\cdot\kvec + \omuns\cdot\uvec)
+\end{equation}
+
+Dans le référentiel tournant le vecteur $(\omega_0-\omrf)\cdot\kvec + \omuns\cdot\uvec$
+est immobile. 
+L'équation du mouvement de $\aimvec$ examinée dans le référentiel tournant se ramène donc
+formellement à celle du mouvement de $\aimvec$ dans le référentiel du laboratoire
+en présence du seul champ $\bzerovec$ (figure \ref{fig:effectif}).
+Il suffit de considérer que l'aimantation de l'échantillon est soumise à un champ magnétique
+appelé \emph{champ effectif} $\bveceff$ défini par 
+\begin{equation}
+(\omega_0-\omrf)\cdot\kvec + \omuns\cdot\uvec = -\gamma\cdot\bveceff = \omveceff 
+\end{equation}
+Ainsi :
+\begin{equation}
+\left(\derivt{\aimvec}\right)' = \aimvec\wedge\bveceff 
+\end{equation}
+
+Dans le référentiel tournant le mouvement de $\aimvec$ soumis simultanément aux champs 
+$\bzerovec$ et $\bunvect$ est un mouvement de précession autour de l'axe de 
+$\bveceff$ à la fréquence $\omeff/2\pi$.
+Lorsque le champ $\bunvect$ est nul, $\omeff$ vaut $\omega_0-\omrf$.
+Ceci était prévisible puisqu'alors $\aimvec$ tourne autour de l'axe 
+$Oz$ (ou $OZ$) à la pulsation $\omega_0$ dans le référentiel du laboratoire
+et que le référentiel mobile tourne dans le même sens
+à la pulsation $\omrf$ autour de ce même référentiel.

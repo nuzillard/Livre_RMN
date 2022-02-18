@@ -1,0 +1,1024 @@
+\chapter{Évolution des états et relations de commutation}
+\label{chap:hamilt}
+
+\section{Principe}
+Cette annexe est destinée à exposer le lien entre les règles de calcul
+de l'évolution de la matrice densité d'un système et les
+relations de commutation de l'hamiltonien d'évolution
+(indépendant du temps) avec l'opérateur qui caractérise l'état initial du système.
+Cela donne l'opportunité de sortir du cadre particulier
+où les termes d'un hamiltonien composé de plusieurs termes doivent
+impérativement tous commuter entre eux.
+Les applications possibles vont de l'étude des systèmes homonucléaires
+fortement couplés aux effets d'offset et au mélange isotrope.
+Nous allons donc considérer le problème de l'évolution
+d'un état $A$ sous l'action d'un hamiltonien $H$ appliqué
+pendant un temps $t$.
+
+Dans cette annexe, les règles de commutation des opérateurs sont écrites à l'aide de
+la notation "officielle", à savoir $[A,B]$ pour le commutateur de $A$ et de $B$,
+sachant que
+\begin{equation}
+[A,B] = i\{A,B\} = AB - BA
+\end{equation}
+Cette définition, même si elle reste abstraite tant que les matrices des opérateurs
+ne sont pas connues de manière explicite, indique trois propriétés de base des commutateurs :
+\begin{equation}
+[A,B+C] = [A,B] + [A,C] \quad [\lambda A,B] = \lambda[A,B] \quad [A,B] = -[B,A]
+\end{equation}
+
+\subsection{Rappel des axiomes}
+Les relations qui servent à calculer l'évolution de la matrice de base
+d'un système 
+\emph{dans la base des produits d'opérateurs cartésiens}
+ont été introduites au paragraphe \ref{subsec:transf} :
+\begin{eqnarray}
+\label{eqn:rien}
+\mbox{si}\quad [H,A] = 0 & \qalorsq & 
+A \stackrel{Ht}{\Longrightarrow} A \\
+\label{eqn:evolcart}
+\mbox{si}\quad [H,A] \ne 0 & \qalorsq & 
+A \flham{Ht} \cos(at)A + \sin(at)B
+\end{eqnarray}
+où $a$ est un nombre réel qui caractérise $H$.
+Ces relations, que le lecteur a été obligé d'admettre, constituent de fait
+des axiomes de base pour les calculs d'évolution de l'état des
+systèmes de spins.
+Elles se justifient bien entendu à partir des principes de
+base de la mécanique quantique et de la définition de l'opérateur densité.
+D'autres formulations de ce qui est ici considéré comme des
+axiomes sont possibles et cette annexe
+a pour but de les énoncer.
+
+L'équation \ref{eqn:rien} n'appelle aucun commentaire particulier
+(la double flèche souligne l'invariance de $A$).
+L'équation \ref{eqn:evolcart} devient générale quand elle est écrite :
+
+\noindent
+\begin{minipage}{0.5cm}si\end{minipage}
+\hfill
+\parbox{3.5cm}
+{\begin{eqnarray*} [H,A] & = & iaB \\ {[H,B]} & = & -iaA \end{eqnarray*}}
+\hfill\hfill
+\begin{minipage}{0.5cm}alors\end{minipage}
+\hfill
+\parbox{8cm}{
+\begin{eqnarray*}
+A & \flham{Ht} & \cos(at)A + \sin(at)B \\
+B & \flham{Ht} & \cos(at)B - \sin(at)A
+\end{eqnarray*}}
+\parbox{1cm}{\begin{eqnarray}\label{eqn:ordre2}\end{eqnarray}}
+\\
+\noindent
+ce qui correspond effectivement à la situation rencontrée avec
+les produits d'opérateurs cartésiens lorsque $H$ ne comprend
+qu'un seul terme.
+L'axiome \ref{eqn:ordre2} définit l'action du superopérateur
+relatif à l'application de $H$ pendant le temps $t$ sur les opérateurs
+$A$ et $B$.
+Toute combinaison de ces opérateurs évolue en donnant une combinaison de ces
+mêmes opérateurs.
+Mathématiquement, le sous-espace engendré par $A$ et $B$ est stable
+par action du superopérateur d'évolution.
+Puisque ce sous-espace est de dimension 2, l'axiome \ref{eqn:ordre2}
+définit ce qu'il convient d'appeler un problème d'ordre 2.
+
+\ignore{
+Lorsque $H$ est composé d'une somme de termes
+\emph{qui commutent tous entre eux par paires}
+il suffit d'appliquer à l'état initial les superopérateurs
+relatifs aux différents termes un à un dans un ordre quelconque.
+}
+Une autre formulation de l'axiome \ref{eqn:ordre2} est donnée par :
+
+\noindent
+\begin{minipage}{0.5cm}si\end{minipage}
+\hfill
+\parbox{3.5cm}
+{\begin{eqnarray*} [H,A] & = & -aB \\ {[H,B]} & = & -aA \end{eqnarray*}}
+\hfill\hfill
+\begin{minipage}{0.5cm}alors\end{minipage}
+\hfill
+\parbox{8cm}{
+\begin{eqnarray*}
+A & \flham{Ht} & \cos(at)A + i\sin(at)B \\
+B & \flham{Ht} & \cos(at)B + i\sin(at)A
+\end{eqnarray*}}
+\parbox{1cm}{\begin{eqnarray}\label{eqn:ordre2b}\end{eqnarray}}
+\\
+\noindent
+qui s'obtient à partir de \ref{eqn:ordre2} en remplaçant $B$ par $iB$
+et $a$ par $-a$.
+Ainsi :
+\begin{eqnarray}
+[\pi J 2I_zS_z, I_-] & = & [\pi J 2I_zS_z, I_x - iI_y] \nonumber\\
+& = & i\pi J 2I_yS_z - \pi J 2I_xS_z \nonumber\\
+& = & -\pi J 2I_-S_z
+\end{eqnarray}
+De la même manière,
+\begin{equation}
+[\pi J 2I_zS_z, 2I_-S_z] = -\pi J I_-
+\end{equation}
+d'où le résultat établi précédemment 
+(équations \ref{eqn:evolipm-is} et \ref{eqn:evolipmsz-is}) :
+\begin{eqnarray}
+\label{eqn:evolim-is}
+I_- & \flham{\pi J t 2I_zS_z} &
+\cos(\pi J t)I_- + i \sin(\pi J t) 2I_-S_z \\
+2I_-S_z & \flham{\pi J t 2I_zS_z} &
+\cos(\pi J t)2I_-S_z + i \sin(\pi J t) I_-
+\end{eqnarray}
+
+\subsection{Axiomes équivalents}
+En effectuant la somme membre à membre des commutateurs de
+l'axiome \ref{eqn:ordre2b} on obtient
+\begin{equation}
+[H,A+B] = -a(A+B)
+\end{equation}
+avec pour conséquence :
+\begin{equation}
+A+B \flham{Ht} \exp(iat)(A+B)
+\end{equation}
+pour tout état initial $A+B$.
+
+L'axiome \ref{eqn:ordre1} :
+\begin{equation}
+\label{eqn:ordre1}
+\mbox{si}\quad [H,A]=-aA \qalorsq
+A \flham{Ht} \exp(iat)A
+\end{equation}
+est équivalent à \ref{eqn:ordre2} tout en ne faisant
+intervenir qu'un seul opérateur $A$.
+
+En effet, si
+\begin{equation}
+[H,A] = iaB \qetq [H,B] = -iaA
+\end{equation}
+(hypothèse de \ref{eqn:ordre2}) alors
+\begin{equation}
+[H,A] = a(iB) \qetq [H,iB] = aA
+\end{equation}
+d'où, en considérant la somme et la différence membre à membre :
+\begin{eqnarray}
+[H,A+iB] & = & a(A+iB) \\
+{[H,A-iB]} & = & -a(A-iB)
+\end{eqnarray}
+avec pour conséquence
+\begin{eqnarray}
+A+iB & \flham{Ht} & \exp(-iat)(A+iB) \\
+A-iB & \flham{Ht} & \exp(iat)(A-iB)
+\end{eqnarray}
+soit encore, en calculant les demi sommes et différences
+\begin{eqnarray}
+A & \flham{Ht} & \cos(at)A + \sin(at)B \\
+B & \flham{Ht} & \cos(at)B - \sin(at)B
+\end{eqnarray}
+qui est la solution attendue à un problème d'ordre 2.
+
+L'axiome \ref{eqn:ordre1} définit un problème d'ordre 1, vu
+que tout multiple de $A$ est transformé en un multiple
+de l'unique opérateur $A$.
+Il est possible de démontrer que tout calcul d'évolution
+d'un état peut se ramener à un ensemble de problèmes d'ordre 1.
+Les relations \ref{eqn:ordre2} et \ref{eqn:ordre2b} en sont des conséquences
+pratiques à utiliser.
+
+La relation \ref{eqn:ordre1} s'applique lorsque
+lorsque $A$ est une cohérence du système étudié, subissant
+l'effet de l'hamiltonien d'évolution libre, en vertu
+de la définition même d'une cohérence.
+Ainsi, le résultat
+\begin{equation}
+I_- \flham{\omsi t I_z} \exp(i\Omega t)I_-
+\end{equation}
+est une conséquence immédiate de la relation de commutation
+\begin{equation}
+[\omsi I_z, I_-] = -\omsi I_-
+\end{equation}
+
+\subsection{Un problème général d'ordre 2}
+Le problème considéré dans ce paragraphe correspond aux relations de commutation
+\begin{equation}
+\label{eqn:ordre2chyp}
+[H,A] = -aA -bB \qetq [H,B] = -bA + aB
+\end{equation}
+
+Il existe une méthode un peu longue mais systématique pour prédire
+comment vont évoluer $A$ et $B$.
+En remarquant que dans les cas précédents $[H,[H,A]]$ était un multiple de $A$,
+le calcul de cette quantité donne ici :
+\begin{eqnarray}
+[H,-aA-bB] & = & -a(-aA-bB) -b(-bA+aB) \\
+& = & (a^2+b^2)A \\
+& = & c^2 A
+\end{eqnarray}
+en posant
+\begin{equation}
+c = \sqrt{a^2+b^2}
+\end{equation}
+
+Les hypothèses \ref{eqn:ordre2chyp} peuvent alors être réécrites
+\begin{equation}
+[H,A] = -c\frac{aA+bB}{c} \qetq [H,\frac{aA+bB}{c}] = -cA
+\end{equation}
+ce qui d'après \ref{eqn:ordre2b} implique :
+\begin{equation}
+A \flham{Ht} \cos(ct)A + i\sin(ct)\frac{aA+bB}{c}
+\end{equation}
+soit
+\begin{equation}
+\label{eqn:ordre2ca}
+A \flham{Ht} 
+\left(\cos(ct)+i\frac{a}{c}\sin(ct)\right)A + i\frac{b}{c}\sin(ct)B
+\end{equation}
+En remarquant que dans \ref{eqn:ordre2chyp} $A$ est permuté avec $B$
+lorsque $a$ est changé en $-a$ :
+\begin{equation}
+\label{eqn:ordre2cb}
+B \flham{Ht} 
+\left(\cos(ct)-i\frac{a}{c}\sin(ct)\right)B + i\frac{b}{c}\sin(ct)A
+\end{equation}
+
+\section{Applications}
+
+\subsection{Couplages forts}
+Le calcul des spectres $AB$ où deux noyaux $A$ et $B$ forment un système
+de spins fortement couplés est un grand "classique" de l'application du formalisme de la
+mécanique quantique à la RMN.
+L'approche développée dans cette annexe nous permet d'obtenir le même
+résultat, sans introduire ni diagonalisation d'opérateur hamiltonien
+ni calcul de moment de transition.
+Nous continueront d'appeler $I$ et $S$ les noyaux couplés, $\nu_I$ et $\nu_S$
+leur fréquence de résonance et $J$ leur constante de couplage.
+
+L'opérateur hamiltonien complet de ce système est :
+\begin{eqnarray}
+H & = & 2\pi\nu_I I_z + 2\pi\nu_S S_z + 
+2\pi J \boldsymbol{\vec{I}} \cdot \boldsymbol{\vec{S}} \\
+\label{eqn:hcouplefort}
+& = & 2\pi\nu_I I_z + 2\pi\nu_S S_z + 
+\pi J (2I_xS_x + 2I_yS_y + 2I_zS_z)
+\end{eqnarray}
+écriture qui fait apparaître le couplage (scalaire) comme résultant du 
+produit scalaire des opérateurs vectoriels liés à la mesure du moment cinétique
+de spin de $I$ et de $S$.
+
+Si le but recherché n'est que de décrire l'évolution de l'aimantation du système à
+l'issue d'une impulsion RF et pendant l'acquisition du signal,
+il suffit de prévoir comment évolue $I_- + S_-$ sous l'action de $H$
+pendant le temps $t$.
+Toutefois les équations qui seront écrites permettent d'aller plus loin,
+notamment de décrire l'effet des couplages forts dans certaines
+expériences de RMN 2D.
+
+Dans un système $IS$, les deux noyaux ont des fréquences de résonance
+différentes l'une de l'autre, même si l'expression 
+\ref{eqn:hcouplefort} de $H$ traduit l'existence
+d'une certaine symétrie.
+L'écriture
+\begin{equation}
+\label{eqn:hcouplefort2}
+H = \pi(\nu_I + \nu_S)(I_z + S_z) + \pi J \, 2I_zS_z + \pi(\nu_I - \nu_S)(I_z - S_z)
++ \pi J (2I_xS_x + 2I_yS_y)
+\end{equation}
+fait apparaître quatre termes.
+Les deux premiers sont totalement symétriques
+vis-à-vis de $I$ et $S$, le troisième concentre toute la non-symétrie de $H$,
+alors que le quatrième est celui qui est négligé lorsque le couplage est faible,
+c'est-à-dire lorsque $|J| \ll |\nu_I - \nu_S|$.
+Il suffit de supprimer le quatrième terme dans \ref{eqn:hcouplefort2} pour
+retrouver l'expression \ref{eqn:hcouplefaible}.
+Le choix de la décomposition \ref{eqn:hcouplefort2} de $H$ n'est pas évident \emph{a priori}
+et il ne faut pas que le lecteur se vexe de ne pas l'avoir trouvée lui-même.
+ 
+Les notations
+\begin{eqnarray}
+H & = & H_0 + H_1 + H_2 \\
+H_1 & = & \pi J 2I_zS_z \\
+H_2 & = & a H_3 + b H_4 \qavecq a = \pi J 
+\qetq b = \pi(\nu_I - \nu_S) \\
+H_3 & = & 2I_xS_x + 2I_yS_y\\
+H_4 & = & I_z - S_z
+\end{eqnarray}
+simplifient les expressions qui vont suivre.
+Connaissant l'évolution de $I_-$, il suffit de changer $b$ en $-b$
+pour trouver celle de $S_-$.
+Il est facile de vérifier que
+\begin{equation}
+[H_0, H_1] = [H_0, H_2] = [H_1, H_2] =  0 
+\end{equation}
+à partir des relations de commutation entre produits d'opérateurs
+cartésiens.
+Il faut toutefois ajouter à la liste celles qui sont connues, celles
+du type $[I_z, 2I_xS_x] = i \, 2I_yS_x$ qui obéissent à la même
+logique que $[2I_zS_z, I_x] = i \, 2I_yS_z$.
+
+La nullité des commutateurs de $H_0$, $H_1$ et $H_2$ pris deux par deux
+permet d'appliquer successivement ces trois opérateurs pendant le temps $t$.
+Nous cherchons donc $\sigma_3$ tel que :
+\begin{equation}
+\sigma_0 = I_-\flham{H_0 t} \sigma_1
+\flham{H_1 t} \sigma_2
+\flham{H_2 t} \sigma_3
+\end{equation}
+Sachant que $[I_z + S_z, I_-] = -I_-$,
+\begin{equation}
+\sigma_1 = \exp(i\pi(\nu_I+\nu_S)t) \sigma_0
+\end{equation}
+il suffit de calculer $\sigma_5$ :
+\begin{equation}
+\sigma_0 = I_- \flham{H_1 t} \sigma_4
+\flham{H_2 t} \sigma_5
+\end{equation}
+et d'écrire :
+\begin{equation}
+\label{eqn:couplefortsigma3}
+\sigma_3 = \exp(i\pi(\nu_I+\nu_S)t) \sigma_5
+\end{equation}
+
+L'opérateur $H_2$ est constitué de deux termes qui ne commutent
+pas entre eux.
+A partir des relations :
+
+\noindent\hfill
+\parbox{6cm}{
+\[
+\begin{array}{r@{\,=\,}l@{\quad\quad}r@{\,=\,}l}
+[H_3, I_-] & 2I_zS_- & [H_4, I_-] & -I_- \\
+{[H_3, 2I_zS_-]} & I_- & [H_4, 2I_zS_-] & 2I_zS_-
+\end{array}
+\]
+}
+\hfill
+\parbox{1cm}{
+\begin{eqnarray}\end{eqnarray}
+}
+
+\noindent
+on déduit les relations de commutation pour $H_2$ :
+\begin{eqnarray}
+[H_2, I_-] & = & -b \, I_- + a \, 2I_zS_- \\
+{[H_2, 2I_zS_-]} & = & a \, I_- + b \, 2I_zS_-
+\end{eqnarray}
+qui se ramènent aux hypothèses \ref{eqn:ordre2chyp} moyennant les transformations :
+\begin{equation}
+I_- \rightarrow A \quad 2I_-Sz \rightarrow B \quad
+-b \rightarrow -a \quad a \rightarrow -b
+\end{equation}
+avec pour conséquence :
+\begin{equation}
+\label{eqn:evolimh2}
+I_- \flham{H_2 t}
+\left(\cos ct + i\frac{b}{c}\sin ct \right) \, I_- -i\frac{a}{c}\sin ct \, 2I_zS_-
+\end{equation}
+
+De même, les relations de commutation :
+\begin{eqnarray}
+[H_2, 2I_-S_z] & = & -b \, I_-S_z + a \, S_- \\
+{[H_2, S_-]} & = & a \, I_-S_z + b \, S_-
+\end{eqnarray}
+conduisent à :
+\begin{equation}
+\label{eqn:evolimszh2}
+2I_-S_z \flham{H_2 t}
+\left(\cos ct + i\frac{b}{c}\sin ct \right) \, 2I_-S_z -i\frac{a}{c}\sin ct \, S_-
+\end{equation}
+
+L'hamiltonien $H_2$ transforme donc de l'aimantation transversale du noyau $I$
+en aimantation transversale de $S$ et réciproquement.
+Ceci n'a pas lieu lorsque le système est faiblement couplé
+et est en fait dû aux propriétés de commutation de $H_3$.
+D'après \ref{eqn:evolim-is} et dans le contexte de ce paragraphe,
+\begin{equation}
+\sigma_4 = \cos at \, I_- + i\sin at \, 2I_-S_z
+\end{equation}
+Les équations \ref{eqn:evolimh2}, \ref{eqn:evolimszh2} 
+puis \ref{eqn:couplefortsigma3} fournissent le moyen
+de calculer $\sigma_5$ puis $\sigma_3$ à partir de $\sigma_4$ :
+\begin{eqnarray}
+\lefteqn{\sigma_3 = \exp(i \pi (\nu_I + \nu_S)t) \Bigg[ (\cos at\left(\cos ct + 
+i\frac{b}{c}\sin ct\right) \, I_- +
+\frac{a}{c}\sin at \sin ct \, S_-} \nonumber\\
+& & + \sin at\left(\cos ct + i\frac{b}{c}\sin ct\right) \, 2 I_-S_z
+- i\frac{a}{c}\cos at \sin ct \, 2I_zS_- \Bigg]
+\end{eqnarray}
+
+L'évolution de $I_-$ sous l'action de $H$ préserve bien l'ordre de cohérence total (-1)
+bien qu'un état d'ordre de cohérence partiel -1 du noyau $I$ ($I_-$) évolue pour donner
+un terme d'ordre de cohérence partiel 0 ($2I_zS_-$) de ce même noyau.
+
+A partir de $\sigma_3$, l'expression
+du signal $s_I(t)$ qui provient de l'évolution de $I_-$ sous l'action de $H$
+pendant le temps $t$ est la somme des des coefficients multiplicatifs
+de $I_-$ et $S_-$ dans l'expression de $\sigma_3$ :
+\begin{equation}
+s_I(t) = \exp(i \pi (\nu_I + \nu_S)t) \Bigg[
+\cos at\left(\cos ct + i\frac{b}{c}\sin ct\right) + 
+\frac{a}{c}\sin at \sin ct
+\Bigg]
+\end{equation}
+
+\begin{figure}[hbt]
+\begin{center}
+\begin{pspicture}(-4.5,-2.5)(10,3.5)
+\SpecialCoor
+\psline{<->}(-3.6,3)(-1.6,3)
+\uput[90](-2.6,3){$J$}
+\psline{<->}(3.6,3)(1.6,3)
+\uput[90](2.6,3){$J$}
+\psline(-2.4,0.5)(-2.4,-1)
+\psline(2.4,0.5)(2.4,-1)
+\psline{<->}(-2.4,-0.8)(2.4,-0.8)
+\uput[90](0,-0.8){$\Delta \nu$}
+\psline(-2.6,0.5)(-2.6,-2.2)
+\psline(2.6,0.5)(2.6,-2.2)
+\psline{<->}(-2.6,-2)(2.6,-2)
+\uput{3pt}[90](0,-2){$\displaystyle
+\sqrt{\displaystyle J^{\scriptstyle 2} + (\Delta\nu)^{\scriptstyle 2}} $}
+\psline(0,-0.1)(0,1.5)
+\uput{3pt}[90](0,1.5){$\displaystyle \frac{\displaystyle \nu_I + \nu_S}{\displaystyle 2}$}
+\psline[linestyle=dashed,dash=5pt 5pt](-4.5,1.23)(5,1.23)
+\uput[0](5,1.23){$\displaystyle I_{\mbox{rel}} = \frac{\displaystyle 1}{\displaystyle 2}
+\left(1 - \frac{\displaystyle J}{\displaystyle 
+\sqrt{\displaystyle J^{\scriptstyle 2} + (\Delta\nu)^{\scriptstyle 2}}} \right) $}
+\psline[linestyle=dashed,dash=5pt 5pt](-4.5,2.77)(5,2.77)
+\uput[0](5,2.77){$\displaystyle I_{\mbox{rel}} = \frac{\displaystyle 1}{\displaystyle 2}
+\left(1 + \frac{\displaystyle J}{\displaystyle
+\sqrt{\displaystyle J^{\scriptstyle 2} + (\Delta\nu)^{\scriptstyle 2}}} \right) $}
+\psset{linewidth=1.2pt}
+\psline(-4.5,0)(-3.7,0)(-3.6,1.23)(-3.5,0)(-1.7,0)(-1.6,2.77)(-1.5,0)(1.5,0)(1.6,2.77)(1.7,0)(3.5,0)(3.6,1.23)(3.7,0)(4.5,0)
+\end{pspicture}
+\caption{\label{fig:couplefort}
+\small Spectre issu d'un système $IS$ fortement couplé.}
+\end{center}
+\end{figure}
+
+Le signal $s_S(t)$ qui provient de $S$ se déduit de $s_I(t)$ en remplaçant $b$
+par $-b$. En conséquence, le signal détecté $s(t)$ s'écrit :
+\begin{eqnarray}
+s(t) & = & s_I(t) + s_S(t) \\
+& = & 2 \exp(i \pi (\nu_I + \nu_S)t) \left(
+\cos at \cos ct + \frac{a}{c} \sin at \sin ct \right)
+\end{eqnarray}
+
+Le signal $s(t)$ se décompose comme la somme de deux termes $s_s(t)$ et $s_a(t)$, où
+les indices $_a$ et $_s$ signifient \emph{s}ymétrique et \emph{a}nti-symétrique :
+\begin{eqnarray}
+\lefteqn{s_s(t) = \frac{1}{2} \exp(i \pi (\nu_I + \nu_S)t)} \nonumber\\
+& & \quad\quad (\exp(ict)+\exp(-ict))(\exp(iat)+\exp(-iat)) \\
+\lefteqn{s_a(t) = -\frac{1}{2}\frac{a}{c} \exp(i \pi (\nu_I + \nu_S)t)} \nonumber\\
+& & \quad\quad (\exp(ict)-\exp(-ict))(\exp(iat)-\exp(-iat))
+\end{eqnarray}
+
+En se rappelant que
+\begin{equation}
+a = \pi J \quad\mbox{et}\quad \frac{c}{\pi}=\sqrt{J^2+(\Delta \nu)^2}
+\end{equation}
+la TF de $s_s(t)$ fournit quatre raies d'intensités
+relatives toutes égales à $\frac{1}{2}$ et celle de $s_a(t)$ fournit
+quatre raies aux mêmes fréquences mais avec des intensités $\pm\frac{\pi J}{2c}$.
+Le spectre issus de la TF de $s(t)$ présente donc les caractéristiques indiquées
+dans le tableau \ref{tab:couplefort} et illustrées par la figure
+\ref{fig:couplefort}.
+La somme des intensités relatives 
+de deux raies distantes de $J$ en fréquence
+est toujours égale à 1.
+Le couplage fort n'affecte donc pas le caractère quantitatif des spectres.
+
+\begin{table}[hbt]
+\caption{Spectre d'un système $IS$ fortement couplé}
+\label{tab:couplefort}
+\begin{center}
+\begin{tabular}{cc}
+\hline
+Fréquence & Intensité \\ \hline
+$\frac{1}{2}\left(\nu_I + \nu_S + \frac{c}{\pi} + J \right)$ & 
+$\frac{1}{2}\left(1 - \frac{\pi J}{c} \right)$ \\
+$\frac{1}{2}\left(\nu_I + \nu_S + \frac{c}{\pi} - J \right)$ & 
+$\frac{1}{2}\left(1 + \frac{\pi J}{c} \right)$ \\
+$\frac{1}{2}\left(\nu_I + \nu_S - \frac{c}{\pi} + J \right)$ & 
+$\frac{1}{2}\left(1 + \frac{\pi J}{c} \right)$ \\
+$\frac{1}{2}\left(\nu_I + \nu_S - \frac{c}{\pi} - J \right)$ & 
+$\frac{1}{2}\left(1 - \frac{\pi J}{c} \right)$ \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+Deux cas particuliers sont intéressants à mentionner : celui où $J \ll \Delta\nu$
+et celui où $\Delta\nu = 0$.
+Si $J \ll \Delta\nu$, en faisant une approximation au premier ordre,
+$c = \pi \, \Delta\nu$ et alors les fréquences sont identiques à celles d'un système
+faiblement couplé et les raies "externes" présentent une intensité relative
+un peu plus faible que les raies internes, comme indiqué dans le
+tableau \ref{tab:pastropfort}.
+Le lecteur pourra vérifier que l'allure du spectre n'est pas modifiée si
+$J$ est changé en $-J$.
+
+\begin{table}[hbt]
+\caption{Spectre d'un système $IS$ pas trop fortement couplé}
+\label{tab:pastropfort}
+\begin{center}
+\begin{tabular}{cc}
+\hline
+Fréquence & Intensité \\ \hline
+$\nu_I + \frac{J}{2}$ & 
+$\frac{1}{2}\left(1 - \frac{J}{\Delta\nu} \right)$ \\
+$\nu_I - \frac{J}{2}$ & 
+$\frac{1}{2}\left(1 + \frac{J}{\Delta\nu} \right)$ \\
+$\nu_S + \frac{J}{2}$ & 
+$\frac{1}{2}\left(1 + \frac{J}{\Delta\nu} \right)$ \\
+$\nu_S - \frac{J}{2}$ & 
+$\frac{1}{2}\left(1 - \frac{J}{\Delta\nu} \right)$ \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+Si $\Delta\nu = 0$ alors les deux noyaux ont la même fréquence de résonance $\nu_{IS}$
+et $c = \pi J$. Les raies externes sont d'intensités nulles et les deux raies internes
+sont superposées à la fréquence $\nu_{IS}$ avec chacune une intensité relative de 1,
+soit 2 au total.
+Ce résultat est général : tout se passe comme si la constante de
+couplage de deux noyaux magnétiquement équivalents est nulle.
+
+\subsection{Mélange isotrope}
+Un système homonucléaire couplé (fortement ou faiblement) 
+$IS$ soumis à une suite ininterrompue d'échos de
+spin évolue comme si les offsets des noyaux $I$ et $S$ sont nuls,
+puisque leur action est en annulée (refocalisée) à chaque instant.
+L'hamiltonien d'évolution est alors
+\begin{eqnarray}
+H & = & 2\pi J \boldsymbol{\vec{I}} \cdot \boldsymbol{\vec{S}} \\
+\label{eqn:hisotrope}
+& = & \pi J (2I_xS_x + 2I_yS_y + 2I_zS_z)
+\end{eqnarray}
+à comparer avec \ref{eqn:hcouplefort}.
+L'expression de $H$ ne fait intervenir qu'un produit scalaire d'opérateurs,
+invariant par permutation des axes, faisant ainsi que
+$H$ soit qualifié d'\emph{isotrope}.
+
+L'évolution de l'aimantation d'un des noyaux, $I$ par exemple,
+sous l'action de $H$ peut être prédite de diverses manières.
+Celle présentée ici essaye de réutiliser au maximum les équations
+écrites dans les paragraphes précédents.
+La séquence de calculs adoptée est la suivante :
+\begin{equation}
+\sigma_0 = I_{\pm}\flham{a H_2 t} \sigma_1
+\flham{a H_1 t} \sigma_2
+\end{equation}
+où
+\begin{eqnarray}
+H & = & a \, H_1 + a \, H_2 \\
+a & = & \pi J \\
+H_1 & = & 2I_zS_z \\
+H_2 & = & 2I_xS_x + 2I_yS_y
+\end{eqnarray}
+
+Sachant que
+\begin{equation}
+[H_2, I_{\pm}] = \mp 2I_zS_- \qetq [H_2, 2I_zS_{\pm}] = \mp I_{\pm}
+\end{equation}
+on déduit :
+\begin{equation}
+\sigma_1 = \cos at \, I_{\pm} \pm i \sin at \, 2I_zS_{\pm}
+\end{equation}
+
+De même, à partir de :
+
+\noindent\hfill
+\parbox{6cm}{
+\[
+\begin{array}{r@{\,=\,}l@{\quad\quad}r@{\,=\,}l}
+[H_1, I_{\pm}] & \pm2I_-S_z & [H_1, 2I_{\pm}S_z] & \pm I_- \\
+{[H_1, 2I_zS_{\pm}]} & \pm S_{\pm} & [H_1, S_{\pm}] & \pm 2I_zS_{\pm}
+\end{array}
+\]
+}
+\hfill
+\parbox{1cm}{
+\begin{eqnarray}\end{eqnarray}
+}
+
+\noindent
+il vient :
+\begin{eqnarray}
+I_{\pm} & \flham{a H_1 t} &
+\cos at \, I_{\pm} \mp i \sin at \, 2I_{\pm}S_z \\
+2I_zS_{\pm} & \flham{a H_1 t} &
+\cos at \, 2I_zS_{\pm} \mp i \sin at \, S_{\pm}
+\end{eqnarray}
+et donc
+\begin{eqnarray}
+\lefteqn{\sigma_2 = \cos at (\cos at I_{\pm} \, \mp i \sin at \, 2I_{\pm}S_z)}
+\nonumber\\
+& & \quad\quad \pm i \sin at (\cos at \, 2I_zS_{\pm} \, \mp i \sin at \, 2S_{\pm})
+\end{eqnarray}
+soit, en calculant la demi-somme des équations d'évolution de $I_+$ et de $I_-$ :
+\begin{equation}
+I_x \flham{H t} \sigma_x(t) = \cos^2 at \, I_x + \sin^2 at \, S_x
++ \sin at \cos at (2I_yS_z - 2I_zS_y)
+\end{equation}
+ou encore
+\begin{equation}
+\label{eqn:isox}
+\sigma_x(t) = \frac{I_x + S_x}{2}
++ \cos(2\pi J  t) \frac{I_x - S_x}{2} + \frac{1}{2} \sin(2\pi J t) \, (2I_yS_z - 2I_zS_y)
+\end{equation}
+
+Ainsi, après un temps $\tau=1/(2J)$ d'évolution, l'aimantation transversale (en phase)
+$I_x$ du noyau $I$ est intégralement convertie en aimantation transversale (en phase) $S_x$ du
+noyau $S$ et revient à l'état initial après une seconde période de durée $\tau$.
+Notons qu'en dehors des instants où l'aimantation est intégralement sur
+$I$ ou sur $S$, des états anti-phase, d'intensité relative maximale $1/2$, sont aussi créés.
+Le processus de transfert d'aimantation entre noyaux qui vient d'être décrit porte
+le nom de \emph{mélange isotrope}, à cause de la nature de l'hamiltonien
+qui en est la cause.
+Le mélange isotrope constitue le fondement de l'expérience TOCSY.
+
+L'hamiltonien \ref{eqn:hisotrope} préserve l'ordre de cohérence total des états
+qui sont mélangés : $I_-$, $S_-$, $2I_-S_z$ et $2I_zS_-$.
+Le calcul de l'évolution de $I_x$ peut aussi être mené en n'utilisant que les règles
+d'évolution des opérateurs cartésiens, sachant que les trois termes qui
+constituent l'hamitonien \ref{eqn:hisotrope} commutent entre eux :
+\begin{equation}
+I_x \flham{2I_xS_x t} I_x
+\flham{2I_yS_y t} \quad
+\flham{2I_zS_z t}
+\sigma_x(t)
+\end{equation}
+avec bien entendu un résultat identique à \ref{eqn:isox}.
+Suivant la même procédure, l'évolution de $I_y$ donne un résultat
+$\sigma_y(t)$ qui se déduit de $\sigma_x(t)$ par permutation circulaire
+des indices $x$, $y$ et $z$.
+L'évolution de $I_{\pm}$ en $\sigma_x(t) \pm i\sigma_y(t)$ fait apparaître la
+conservation de l'ordre de cohérence $\pm 1$.
+
+\subsection{Effet d'offset}
+
+\subsubsection{Position du problème}
+Pendant une impulsion RF de phase nulle, l'hamiltonien qui agit sur un noyau $I$ isolé,
+considéré dans le référentiel tournant, résulte de l'interaction due à l'offset
+du noyau et au champ RF (statique dans le référentiel tournant).
+La description classique des phénomènes est détaillée dans l'annexe \ref{chap:refer}.
+L'usage de la matrice densité a été limité le plus souvent aux impulsions parfaites,
+pour laquelle l'action du champ RF est très notablement supérieure à toutes les autres.
+Les opérateurs associés aux impulsions sont alors $I_{\pm x, \pm y}$.
+Dans la réalité, l'hamiltonien qui agit pendant une impulsion RF de phase nulle s'écrit
+\begin{equation}
+H = a \, I_z + b \, I_x \qavecq a = \omsi
+\qetq b = \omuns
+\end{equation}
+
+Le traitement classique nous apprend que l'aimantation effectue une mouvement
+de précession autour de la direction du champ effectif.
+Le but de ce paragraphe est d'arriver à ce résultat à l'aide du formalisme
+développé précédemment et aussi d'introduire le concept de sélectivité
+des impulsion de RF.
+
+\subsubsection{Solution du problème général}
+Le système se trouve dans l'état initial $\sigma_0 = I_z$.
+Les relations de commutation :
+\begin{eqnarray}
+[H, I_z] & = & -ib \, I_y \\
+{[H, I_y]} & = & -ia \, I_x  + ib \, I_z \\
+{[H, I_x]} & = & ia \, I_y 
+\end{eqnarray}
+indiquent que le problème qui est traité est d'ordre 3.
+Tous les problèmes pour lesquelles les relations de commutation
+ont la même structure sont traitables à l'aide des considérations qui vont suivre.
+On peut citer dans cette catégorie l'action d'un champ RF en résonance
+sur un noyau couplé.
+
+Il faut en fait trouver trois combinaisons de $I_x$, $I_y$ et $I_z$
+pour lesquelles les relations de commutation se ramènent aux cas précédemment étudiés.
+De manière immédiate :
+\begin{eqnarray}
+[H, a \, I_z + b \, I_x] = 0
+\end{eqnarray}
+ce qui signifie que $a \, I_z + b \, I_x$ ou tout multiple de celui-ci est
+invariant par action de $H$.
+Ainsi la direction du vecteur $\aimvec = a\kprimvec + b\iprimvec$ joue
+le rôle de la direction du champ effectif.
+L'aimantation décrite par $I_y$ est perpendiculaire à celle décrite par
+$a \, I_z + b \, I_x$ car le produit scalaire des vecteurs correspondants est nul.
+L'évolution de $I_y$ est gouvernée par les relations :
+\begin{eqnarray}
+{[H, I_y]} & = &i(-a \, I_x  + b \, I_z) \\
+{[H, -a \, I_x  + b \, I_z]} & = & -i (a^2 + b^2) I_y
+\end{eqnarray}
+En introduisant les notations :
+\begin{eqnarray}
+c & = & \sqrt{a^2 + b^2} = \sqrt{\omuns^2 + \omsi^2} = \omeff \\
+U & = & \frac{a \, I_z + b \, I_z}{c} = \ct \, I_x + \st \, I_z \\
+V & = & I_y \\
+W & = & \frac{-a \, I_x + b \, I_z}{c} = -\st \, I_x + \ct \, I_z
+\end{eqnarray}
+les realtions de commutation deviennent
+\begin{eqnarray}
+[H,U] & = & 0 \\
+{[H,V]} & = & ic \, W \\
+{[H,W]} & = & -ic \, V
+\end{eqnarray}
+ramenant ainsi un problème d'ordre 3 à deux problèmes, l'un d'ordre 0
+et l'autre d'ordre 2.
+Les équations d'évolution s'écrivent alors :
+\begin{eqnarray}
+U & \flham{Ht} & U \\
+V & \flham{Ht} & \cos ct \, V + \sin ct \, W \\
+W & \flham{Ht} & -\sin ct \, V + \cos ct \, W
+\end{eqnarray}
+Ce qui correspond bien à une rotation de l'aimantation autour de la direction de
+$U$ (par abus de langage, il s'agit en fait de la direction de l'aimantation décrite par $U$)
+à la pulsation $\omeff$.
+
+Pour déterminer le devenir d'un vecteur aimantation initial quelconque
+il faut l'écrire dans la base \{$U$, $V$, $W$\}, utiliser les équations
+d'évolution ci-dessus puis réécrire l'état $\sigma(t)$
+du système au temps $t$ dans la base \{$I_x$, $I_y$, $I_z$\}.
+Ainsi :
+\begin{equation}
+xI_x + yI_y + zI_z = x'U + y'V +z'W \flham{Ht}
+x''U + y''V + z''W = x'''I_x + y'''I_y + z'''I_z
+\end{equation}
+En considérant chacun des triplets de facteurs multiplicatifs comme les
+coordonnées cartésiennes de vecteurs dans l'espace physique
+muni du repère $(\iprimvec, \jprimvec, \kprimvec)$, l'opération
+qui transforme $(x',y',z')$ en $(x'',y'',z'')$ est, d'après ce qui précède,
+la rotation d'angle $\omeff t$ autour de l'axe dirigé par $\iprimvec$.
+
+Le passage de $(x'',y'',z'')$ vers $(x''',y''',z''')$ est explicité par :
+\begin{eqnarray}
+\lefteqn{x'''I_x + y'''I_y + z'''I_z } \nonumber\\
+& = & x''U + y''V + z''W  \\
+& = & x''(\ct \, I_x + \st \, I_z) + y''I_y + z''(-\st \, I_x + \ct \, I_z) \\
+& = & (x''\ct - z''\st)I_x + y''I_y + (x''\st + z''\ct) I_z
+\end{eqnarray}
+qui définit la transformations des vecteurs de base de l'espace physique :
+\begin{eqnarray}
+(x'',y'',z'') = (1,0,0) & \longrightarrow & (\ct, 0, \st) = (x''', y''', z''') \\
+(0,1,0) & \longrightarrow & (0, 1, 0) \\
+(0,0,1) & \longrightarrow & (-\st, 0, \ct)
+\end{eqnarray}
+et qui correspond donc à une rotation d'angle $\theta$ dans le plan $(\iprimvec, \kprimvec)$
+autour de l'axe défini par $\jprimvec$.
+
+Le passage de $(x,y,z)$ vers $(x',y',z')$ est l'opération inverse de celui de
+$(x'',y'',z'')$ vers $(x''',y''',z''')$ et correspond donc à
+une rotation d'angle $-\theta$ dans le plan $(\iprimvec, \kprimvec)$
+autour de l'axe défini par $\jprimvec$.
+Cette rotation transforme la direction du champ effectif donnée par les coordonnées
+$(\ct, 0, \st)$ en $(1,0,0)$.
+
+En résumé, la rotation d'angle $\omeff t$ autour de l'axe du champ effectif est identique
+à l'application successive de trois opérations :
+\begin{enumerate}
+\item Une rotation d'angle $-\theta$ autour de l'axe OY, rotation qui amène le champ effectif
+sur l'axe OX
+\item Une rotation autour de OX d'angle $\omeff t$
+\item Une rotation d'angle $\theta$ qui ramène le champ effectif à sa position d'origine.
+\end{enumerate}
+Toute rotation autour d'un axe quelconque contenu dans un plan défini par deux
+axes du référentiel
+est équivalente à la composition de 3 rotations autour des axes de ce référentiel.
+Si l'axe de rotation est défini par deux angles polaires $\theta$ et $\phi$ quelconques
+(la phase de l'impulsion n'est pas nécessairement nulle ou multiple de $\pi/2$),
+alors, il faut en tout d'abord ramener l'axe de rotation dans le plan $XOZ$ par une rotation
+d'angle $-\phi$ autour de $OZ$, puis appliquer les trois rotations mentionnées ci-dessus,
+et enfin appliquer une rotation d'angle $\phi$ autour de $OZ$ pour ramener l'axe à sa
+position initiale. Cette composition de cinq rotations se résume par :
+\begin{equation}
+\label{eqn:cinqrotations}
+R_{\alpha}(\theta, \phi) = 
+R_{\phi}(\pi/2, 0)
+R_{\theta}(0, \pi/2)
+R_{\alpha}(0,0)
+R_{-\theta}(0, \pi/2)
+R_{-\phi}(\pi/2, 0)
+\end{equation}
+où $R_{\alpha}(\theta, \phi)$ désigne la rotation d'angle $\alpha$ autour d'un axe
+défini par les angles $\theta$ (compté à partir du plan $XOY$) et $\phi$ (compté à partir
+du plan $XOZ$). 
+Dans le membre de droite de l'équation \ref{eqn:cinqrotations},
+la première opération à appliquer est celle la plus à droite ;
+sa réécriture en terme de superopérateurs est
+\begin{equation}
+\label{eqn:cinqrotationsop}
+\flham{-\phi I_z}
+\quad
+\flham{\theta I_y}
+\quad
+\flham{\alpha I_x}
+\quad
+\flham{-\theta I_y}
+\quad
+\flham{-\phi I_z}
+\end{equation}
+L'angle $\theta$ a été transformé en son opposé car c'est l'opérateur
+$\theta I_y$ qui transforme $\cos\theta I_x + \sin\theta I_y$ (direction
+du champ effectif) en $I_x$ (axe pour la rotation d'angle $\alpha$).
+Ce changement de signe est dû au fait que le trièdre $(\ivec, \kvec, \jvec)$
+est d'orientation opposée à $(\ivec, \jvec, \kvec)$.
+
+\subsubsection{Lien avec l'écho de spin}
+Un cas particulier intéressant concerne la définition de ce qu'est, par exemple,
+une rotation d'angle $-\alpha$ autour de l'axe $0Z$ ($\theta=\pi/2$, $\phi=0$).
+On peut considérer qu'il s'agit d'une rotation d'angle $\alpha$ autour de l'axe $OZ$
+qui aurait été préalablement et subséquemment tourné de $\pi$ autour d'un axe horizontal
+quelconque defini par ($\theta=0$, $\phi$). Ainsi :
+\begin{equation}
+\label{eqn:rotationpi}
+R_{-\alpha}(\pi/2, 0)
+= 
+R_{\pi}(0, \phi)
+R_{\alpha}(\pi/2,0)
+R_{\pi}(0, \phi)
+\end{equation}
+soit encore :
+\begin{equation}
+\label{eqn:rotationpi2}
+R_{\pi}(0, \phi)
+R_{\alpha}(\pi/2, 0)
+=
+R_{-\alpha}(\pi/2,0)
+R_{\pi}(0, \phi)
+\end{equation}
+qui se traduit en termes de superopérateurs par
+\begin{equation}
+\label{eqn:rotationpiop}
+\flham{\alpha I_z}
+\quad
+\flham{\pi I_{x,y}}
+\qiffq
+\flham{\pi I_{x,y}}
+\quad
+\flham{-\alpha I_z}
+\end{equation}
+
+L'équivalence \ref{eqn:rotationpiop}
+entre successions d'opérateurs est à base de la justification 
+de la construction de l'hamiltonien réduit associé aux séquences d'écho de spin.
+Pour un système à un spin, on posant $\alpha = \omsi T$, les équivalences :
+\begin{eqnarray}
+\flham{\alpha I_z}
+\quad
+\flham{\pi I_{x,y}}
+\quad
+\flham{\alpha I_z}
+& \qiffq &
+\flham{\pi I_{x,y}}
+\quad
+\flham{-\alpha I_z}
+\quad
+\flham{\alpha I_z} \\
+& \qiffq &
+\flham{\pi I_{x,y}}
+\end{eqnarray}
+montrent bien que l'hamiltonien réduit est nul et que seule
+subsiste l'action de l'impulsion de refocalisation.
+
+L'extension aux systèmes à plusieurs spins est fondée sur une
+généralisation de \ref{eqn:rotationpiop}, à savoir :
+\begin{equation}
+\label{eqn:rotationpiopzz}
+\flham{\alpha 2I_zS_z}
+\quad
+\flham{\pi I,S_{x,y}}
+\qiffq
+\flham{\pi I,S_{x,y}}
+\quad
+\flham{-\alpha 2I_zS_z}
+\end{equation}
+
+\subsubsection{Sélectivité des impulsions}
+
+Le but est ici de déterminer les composantes de l'aimantation
+en fonction de l'offset de l'impulsion qui lui est appliquée
+sachant d'une part que l'aimantation initiale est celle d'équilibre
+et que l'angle de nutation $\alpha_0$ à offset nul est constant.
+La phase de l'impulsion sera $\phi = \pi/2$, de manière à ce que si $\alpha_0 = \pi/2$
+alors l'aimantation finale sera mesurée positivement sur l'axe $OX$.
+
+Pour cela, il sera fait appel aux transformations de 
+l'identité \ref{eqn:cinqrotationsop} :
+\begin{equation}
+\sigma_0 = I_z
+\stackrel{-\pi/2 I_z}{\Longrightarrow} I_z
+\flham{\theta I_y} \sigma_1
+\flham{\alpha I_x} \sigma_2
+\flham{-\theta I_y} \sigma_3
+\flham{\pi/2 I_z} \sigma_4
+\end{equation}
+qui fournissent :
+\begin{eqnarray}
+\sigma_1 & = & \ct I_z + \st I_x \\
+\sigma_2 & = & \ct(\ca I_z - \sa I_y) + \st I_x \\
+\sigma_2 & = & \st I_x - \ct\sa I_y + \ct\ca I_z \\
+\sigma_3 & = & \st(\ct I_x + \st I_z) - \sa\ct I_y \nonumber\\
+& & \quad + \ct\ca(\ct I_z - \st I_x) \\
+\sigma_3 & = & \st\ct(1 - \ca) I_x - \sa\ct I_y \nonumber\\
+& & \quad +(\sin^2\theta + \ca\cos^2\theta)I_z \\
+\sigma_4 & = & \sa\ct I_x + \st\ct(1 - \ca) I_y \nonumber\\
+& & \quad +(\sin^2\theta + \ca\cos^2\theta)I_z
+\end{eqnarray}
+
+On pose alors :
+\begin{eqnarray}
+v & = & \omsi / \omuns \\
+\omeff & = & \omuns \sqrt{1 + v^2} \\
+\alpha & = & \alpha_0 \sqrt{1 + v^2} \\
+\ct & = & \frac{v}{\sqrt{1+v^2}} \\
+\st & = & \frac{1}{\sqrt{1+v^2}}
+\end{eqnarray}
+La variable sans dimension $v$ caractérise l'offset en prenant $\omuns$
+comme unité de mesure.
+La sélectivité de l'impulsion est mesurée par les fonctions de la variable $v$ :
+\begin{eqnarray}
+\frac{\aimxs}{\aimzerozs} & = &
+\frac{\sin(\alpha_0\sqrt{1+v^2})}{\sqrt{1+v^2}} \\
+\frac{\aimys}{\aimzerozs} & = &
+\frac{v}{1+v^2} \left( 1 - \cos(\alpha_0\sqrt{1+v^2})\right)\\
+\frac{\aimzs}{\aimzerozs} & = &
+\frac{\cos(\alpha_0\sqrt{1+v^2}) + v^2}{1+v^2}
+\end{eqnarray}
+dont les représentations graphiques pour $\alpha_0 = \pi/2$ et 
+$\alpha_0 = \pi$ sont données par la figure \ref{fig:sqrselect}.
+
+\begin{figure}[hbt]
+\begin{center}
+\begin{pspicture}(-7.5,-2)(7.5,2)
+\rput(-4.5,0){
+\psset{xunit=0.6cm,yunit=2cm}
+\psaxes[Dx=5](0,0)(-5,-1)(5,1)
+\fileplot{sqr90zx}
+\fileplot[linestyle=dashed,dash=2pt 5pt]{sqr90zy}
+\fileplot[linestyle=dashed,dash=5pt 5pt]{sqr90zz}
+}
+\rput(2,0){
+\psset{xunit=0.6cm,yunit=2cm}
+\psaxes[Dx=5](0,0)(-5,-1)(5,1)
+\fileplot{sqr180zx}
+\fileplot[linestyle=dashed,dash=2pt 5pt]{sqr180zy}
+\fileplot[linestyle=dashed,dash=5pt 5pt]{sqr180zz}
+}
+\rput(6,1.5) {
+\rput(0,0){$\displaystyle\frac{\displaystyle\aimxs}{\displaystyle\aimzerozs}$}
+\psline[linewidth=0.04](0.5,0)(1.5,0)
+}
+\rput(6,0) {
+\rput(0,0){$\displaystyle\frac{\displaystyle\aimys}{\displaystyle\aimzerozs}$}
+\psline[linewidth=0.04,linestyle=dashed,dash=2pt 5pt](0.5,0)(1.5,0)
+}
+\rput(6,-1.5) {
+\rput(0,0){$\displaystyle\frac{\displaystyle\aimzs}{\displaystyle\aimzerozs}$}
+\psline[linewidth=0.04,linestyle=dashed,dash=5pt 5pt](0.5,0)(1.5,0)
+}
+\end{pspicture}
+\caption{\label{fig:sqrselect}
+\small Sélectivité d'une impulsion rectangulaire, à gauche d'angle $\pi/2$,
+à droite d'angle $\pi$}
+\end{center}
+\end{figure}
+
+\subsubsection{Rotation générale dans l'espace physique}
+$R(\rvec)$ désigne ici le vecteur produit par une
+rotation d'angle $\alpha$ appliquée au vecteur $\rvec$.
+Le sens et la direction de l'axe de rotation sont définis 
+par un vecteur unitaire $\uvec$.
+Le vecteur $\rvec$ se décompose en deux vecteurs $\rvecpar$ et $\rvecper$
+respectivement parallèles et perpendiculaires à $\uvec$ :
+\begin{equation}
+\rvec = \rvecpar + \rvecper
+\end{equation}
+La composante parallèle à $\uvec$ est la projection de $\rvec$ sur $\uvec$.
+En considérant que $\uvec$ est un vecteur unitaire :
+\begin{eqnarray}
+\rvecpar & = & (\uvec \cdot \rvec)\uvec \\
+\rvecper & = & \rvec - (\uvec \cdot \rvec)\uvec
+\end{eqnarray}
+Par linéarité de l'opération de rotation :
+\begin{equation}
+R(\rvec) = R(\rvecpar) + R(\rvecper)
+\end{equation}
+Par définition de $\rvecpar$, $R(\rvecpar) = \rvecpar$.
+Le vecteur $\rvecper$ tourne d'un angle $\alpha$ dans le plan défini par
+lui-même et $\uvec \wedge \rvecper$.
+Sachant que $\uvec \wedge \rvecper = \uvec \wedge \rvec$
+car $\uvec \wedge (\uvec \cdot \rvec)\uvec = 0$,
+\begin{equation}
+R(\rvecper) = \ca \rvecper + \sa \uvec \wedge \rvec
+\end{equation}
+et donc
+\begin{eqnarray}
+R(\rvec) & = & (\uvec \cdot \rvec)\uvec + \ca (\rvec -(\uvec \cdot \rvec)\uvec)
++ \sa (\uvec \wedge \rvec) \\
+\label{eqn:rotatgene}
+& = & \ca \rvec + \sa (\uvec \wedge \rvec) + (1 - \ca)(\uvec \cdot \rvec)\uvec
+\end{eqnarray}
+
+La relation entre $\rvec$ et $R(\rvec)$ est linéaire.
+Il suffit de savoir comment sont transformés les vecteurs de base
+de l'espace physique pour savoir comment est transformé tout vecteur.
+L'équation \ref{eqn:rotatgene} est à la base de la prédiction numérique
+des fonctions de sélectivité des impulsions "formées" (shaped pulses, en anglais)
+pendant lesquelles $\omuns$ voire $\phi$ varient.

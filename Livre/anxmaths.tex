@@ -1,0 +1,104 @@
+\chapter{Un peu de maths...}
+\label{chap:maths}
+
+\section{Nombres complexes}
+\subsection{Écritures et définitions}
+Un nombre complexe $z$ est défini par
+\begin{equation}
+\label{eqn:defcomplexe}
+z = a + ib \qavecq i^2 = -1 \qetq a,\,b 
+\;\;\mbox{deux nombres réels}
+\end{equation}
+
+Cette définition mériterait une digression
+philosophico--mathématique, mais ce n'est pas ici le lieu pour le faire.
+La définition \ref{eqn:defcomplexe} peut se réécrire :
+\begin{eqnarray}
+z & = & \sqrt{a^2+b^2}
+\left( \frac{a}{\sqrt{a^2+b^2}} + i\frac{b}{\sqrt{a^2+b^2}} \right) \nonumber\\
+\label{eqn:zexpcomplexe}
+& = & |z| \left( \cos\theta + i\sin\theta \right)
+\end{eqnarray}
+
+Les quantités réelles $|z|$ et $\theta$ sont respectivement nommées module
+et argument du nombre complexe $z$.
+La dérivée de la fonction $f$ de la variable $\theta$ définie par
+\begin{equation}
+\label{eqn:defexpcomplexe}
+f(\theta) = \cos\theta + i\sin\theta
+\end{equation}
+possède une propriété intéressante :
+\begin{eqnarray}
+f'(\theta) & = & -\sin\theta +i\cos\theta \nonumber\\
+& = & i(\cos\theta + i\sin\theta) \nonumber\\
+& = & i f(\theta)
+\end{eqnarray}
+Trouver la fonction $f(\theta)$ qui possède cette propriété et qui satisfasse
+la relation \ref{eqn:defexpcomplexe} revient à résoudre l'équation différentielle
+\begin{equation}
+\derivtot{f}{\theta} = i f.
+\end{equation}
+Ainsi
+\begin{eqnarray}
+\frac{\diffe f}{f} & = & i \diffe\theta \nonumber\\
+\diffe\log(f) & = & \diffe(i\theta) \nonumber\\
+\log(f) = i\theta + K 
+\end{eqnarray}
+La constante $K$ vaut 0 car $ \log(f(0)) = 0 $ et donc
+\begin{equation}
+\label{eqn:expcomplexe}
+\cos\theta + i\sin\theta = e^{i\theta} = \exp(i\theta)
+\end{equation}
+Ce résultat, combiné avec l'équation \ref{eqn:zexpcomplexe}
+conduit à l'écriture d'un nombre complexe à partir de son
+module et de son argument :
+\begin{equation}
+z = |z| e^{i\theta}
+\end{equation}
+aussi appelée écriture "trigonométrique" ou "exponentielle complexe".
+
+Le complexe conjugué $\bar{z}$ d'un nombre complexe $z = a + ib$ 
+est défini par :
+\begin{equation}
+\bar{z} = a - ib
+\end{equation}
+avec comme écriture trigonométrique
+\begin{equation}
+\bar{z} = |z| e^{-i\theta}
+\end{equation}
+
+\subsection{Opérations entre nombres complexes}
+Considérons deux nombres complexes $z_1$ et $z_2$
+\begin{eqnarray}
+z_1 = a_1 + i b_1 & \quad & z_1 = |z_1| e^{i\theta_1} \nonumber\\
+z_2 = a_2 + i b_2 & \quad & z_2 = |z_2| e^{i\theta_2} \nonumber
+\end{eqnarray}
+Les opérations entre nombres complexes sont définies par
+\begin{eqnarray}
+z_1 + z_2 & = & (a_1 + a_2) + i (b_1 + b_2) \\
+z_1 - z_2 & = & (a_1 - a_2) + i (b_1 - b_2) \\
+z_1 z_2 & = & (a_1 a_2 - b_1 b_2) + i (a_1 b_2 + a_2 b_1) \\
+z_1 z_2 & = & |z_1||z_2| \exp(i(\theta_1 + \theta_2)) \\
+z_1 \bar{z_1} & = & |z_1|^2 \\
+\frac{1}{z_1} & = & \frac{1}{|z_1|} \exp(-i\theta) = \frac{\bar{z_1}}{|z_1|^2} \\
+\frac{z_1}{z_2} & = & \frac{|z_1|}{|z_2|} \exp(i(\theta_1 - \theta_2)) = \frac{z_1 \bar{z_2}}{|z_2|^2} \\
+\frac{z_1}{z_2} & = & \frac{(a_1 a_2 + b_1 b_2) + i(a_2 b_1 - a_1 b_2)}{a_2^2 + b_2^2}
+\end{eqnarray}
+
+L'identification entre le plan vectoriel et l'ensemble des nombres complexes
+est illustré par la figure \ref{fig:xyplane}, page \pageref{fig:xyplane}.
+L'addition et soustraction des nombres complexes est équivalente aux mêmes
+opérations effectuées sur les vecteurs. Le module d'un nombre complexe est la norme
+du vecteur associé, son argument est l'angle formé entre le vecteur et le vecteur
+$\ivec$. La transformation d'un nombre complexe en son complexe conjugué correspond
+à l'opération de symétrie par rapport à l'axe $OX$ de direction $\ivec$.
+
+La multiplication d'un nombre complexe par un autre nombre complexe de module 1
+et d'argument $\theta$ est équivalente à une rotation d'angle $\theta$ :
+\begin{equation}
+z_1 \exp(i\theta) = |z_1| \exp(i(\theta_1 + \theta))
+\end{equation}
+Le module de $z_1$ est inchangé et son argument a été augmenté de $\theta$.
+La description d'une opération de rotation plane est donc très simplement
+décrite en utilisant les nombre complexes.
+

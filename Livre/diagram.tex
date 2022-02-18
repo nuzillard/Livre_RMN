@@ -1,0 +1,600 @@
+\chapter{Diagrammes énergétiques}
+\label{chap:diagram}
+
+La démarche qui va être présentée dans le chapitre suivant,
+intitulé "matrice densité", repose
+sur l'acceptation par le lecteur d'un certain nombre de règles
+très formelles, mais qui ont comme premier avantage de reproduire
+les résultats connus pour les systèmes à un spin et fondés sur
+la manipulation du vecteur aimantation macroscopique.
+Leur second avantage est d'être applicables "les yeux fermés"
+en étant sûr qu'au terme de calculs, parfois un peu lourds, certes,
+des résultat reflétant la réalité du comportement de systèmes complexes
+pourront être obtenus.
+Cette "conception algébrique" de la RMN n'est pas nécessairement la préférée de tous,
+et la "conception géométrique" du modèle de Bloch semble être pour certains
+(le plus grand nombre ?) plus directement accessible car plus visuelle.
+
+L'extension du modèle de Bloch aux systèmes à plusieurs spins relève 
+de la connaissance préalable de leur diagramme énergétique.
+Ce chapitre a pour but de présenter ces diagrammes
+et d'introduire la notion de couplage scalaire, notion qui est centrale
+pour l'étude des structures moléculaires par RMN.
+La présentation du modèle de Bloch étendu sera faite ultérieurement,
+après la présentation du formalisme de la matrice densité, et afin
+de faire le lien entre les deux concepts. 
+
+Les diagrammes énergétiques indiquent quels sont les états d'énergie accessibles
+à un spin ou un système de spin plongés dans un champ magnétique $\bzerovecloc$.
+L'absorption et l'émission d'énergie sous forme d'une onde électromagnétique
+par le système s'effectue à des fréquences caractéristiques qui se déduisent
+des valeurs des énergies possibles. 
+Ces fréquences sont les mêmes que celles observées pour la précession de l'aimantation
+dans le modèle de Bloch et son extension aux systèmes à plus de un spin.
+Le diagramme énergétique d'un système de spins est donc utile à connaître,
+même pour les inconditionnels de la démarche algébrique.
+% Comme précédemment nous nous plaçons dans l'hypothèse des systèmes faiblement couplés
+% et des impulsions parfaites.
+
+\section{Systèmes à un spin}
+
+Comme indiqué au début de cet ouvrage, la fréquence de résonance $\nu_I$ d'un noyau $I$,
+de rapport gyromagnétique $\gamma_I$ soumis au champ local $\bzerovecloc (I)$ est :
+\begin{equation}
+\nu_I = \frac{\gi\bzerolocs (I)}{2\pi}
+\end{equation}
+sachant qu'ici $\nu_I$ représente une fréquence mesurable dans le référentiel
+du laboratoire (et non pas dans le référentiel tournant).
+
+La résonance du noyau $I$ est liée à l'existence de 2 niveaux énergétiques
+qui avaient été notés $E_{\al}$ et $E_{\be}$ liés aux valeurs du nombre quantique $m_s(I)$
+$+1/2$ et $-1/2$, respectivement.
+En prenant comme référence (énergie 0)  l'énergie moyenne $(E_{\al} + E_{\be})/2 $,
+on obtient $E_{\al} = -1/2.h\nu_I$ et $E_{\be} = +1/2.h\nu_I$, soit
+\begin{equation}
+E/h = -m_s(I) \nu_I
+\end{equation}
+ce qui aboutit au diagramme énergétique de la figure \ref{fig:diagrami}.
+Les états liés à $m_s(I) = +1/2$ et $-1/2$ seront respectivement notés $\al$ et $\be$.
+
+\begin{figure}[hbt]
+\begin{center}
+\begin{pspicture}(0,-1.5)(5,2.5)
+\psline[linewidth=0.05]{->}(0.5,-1.5)(0.5,1.5)
+\psline(0,0)(1,0)
+\psline(1,0)(2,1)
+\psline(1,0)(2,-1)
+\psline[linewidth=1mm](2,1)(3,1)
+\psline[linewidth=1mm](2,-1)(3,-1)
+\psline{<->}(2.5,-1)(2.5,1)
+\rput(0.5,2){$E/h$}
+\rput(4.5,2){$m_s$}
+\rput(3,0){$\nu_I$}
+\rput(3.5,1){$\be$}
+\rput(3.5,-1){$\al$}
+\rput(4.5,1){$-1/2$}
+\rput(4.5,-1){$+1/2$}
+\end{pspicture}
+\caption{\label{fig:diagrami}
+\small Diagramme énergétique d'un spin 1/2 isolé $I$}
+\end{center}
+\end{figure}
+
+Pour rappel, le chemin qui conduit du diagramme énergétique
+vers la précession du vecteur $\aimvec$ hors équilibre à la
+fréquence $\nu_I$ s'appuie sur le traitement par la mécanique classique du mouvement
+de ce vecteur, traitement dont la légitimité est laissée à
+l'appréciation (la crédulité ?) du lecteur qui ne maîtriserait pas
+les aspects fondamentaux de la mécanique quantique.
+
+En faisant une entorse aux principes exposés dans le préambule,
+le raisonnement suivant présente le lien quantique entre niveaux énergétiques
+et précession de Larmor.
+Cela doit être considéré comme une digression...
+
+Soient $\qal$ et $\qbe$ sont les fonctions propres de l'hamiltonien
+\begin{equation}
+H = -2\pi\nu_I \cdot I_z 
+\end{equation}
+avec respectivement comme valeurs propres $E_{\al}=-h\nu_I/2$ et $E_{\be}=+h\nu_I/2$.
+L'état d'\emph{une seule} particule décrit par la fonction d'onde
+\begin{equation}
+\qpsi_0 = \frac{\qal + \qbe}{\sqrt{2}}
+\end{equation}
+est un état propre de $I_x$.
+C'est-à-dire que si on dispose d'un grand nombre de particules
+qui sont toutes à l'instant $t=0$ dans l'état $\qpsi_0$,
+et si on mesure $\aimxs = \gamma_I I_x$ sur chaque particule,
+alors on est \emph{certain} de trouver à chaque fois $1/2.\gamma_I\hbar$.
+L'état $\qpsi_0$ va évoluer
+au cours du temps, selon le résultat usuel, issu de l'intégration
+de l'équation de Schrödinger dépendante du temps.
+\begin{eqnarray}
+\qal & \xrightarrow{H,t} & \exp(-iE_{\al}t/\hbar)\cdot \qal\\
+\qbe & \xrightarrow{H,t} & \exp(-iE_{\be}t/\hbar)\cdot \qbe\\
+\qpsi_0 & \xrightarrow{H,t} & \qpsi(t) \nonumber\\
+& & = (\exp(-iE_{\al}t/\hbar) \cdot \qal + \exp(-iE_{\be}t/\hbar) \cdot \qbe)/\sqrt{2}
+\end{eqnarray}
+La probabilité $p_+(t)$ pour que la mesure de $\aimxs$ donne $+1/2.\gamma_I.\hbar$
+est fournie par 
+\begin{eqnarray}
+p_+(t) & = & |\bpsi_0 \qpsi(t)|^2 \nonumber\\
+& = & |\exp(-iE_{\al}t/\hbar) + \exp(-iE_{\be}t/\hbar)|^2/4 \nonumber\\
+& = & (1 + \cos((E_{\be} -E_{\al})t/\hbar)/2 \label{eqn:interf}\\
+& = & (1 + \cos(2\pi\nu_It))/2
+\end{eqnarray}
+Sachant que la valeur propre $-1/2.\gamma_I\hbar$ de $\aimxs$ est associée
+à la fonction d'onde $(\qal - \qbe)/\sqrt{2}$,
+un calcul identique au précédent conduit pour la probabilité 
+$p_-(t)$ pour que la mesure de $\aimxs$ donne $-1/2.\gamma_I\hbar$
+\begin{equation}
+p_-(t)  =  (1 - \cos(2\pi\nu_It))/2
+\end{equation}
+
+La valeur moyenne de $\aimx$ au temps $t$, observable sur un grand nombre
+de noyaux initialement tous dans l'état $\qpsi_0$ est donc
+\begin{eqnarray}
+<\aimxs(t)> & = & 1/2.\gamma_I\hbar(p_+(t) - p_-(t)) \nonumber\\
+& = & 1/2.\gamma_I\hbar\cos(2\pi\nu_It)
+\end{eqnarray}
+
+Suivant la même procédure,
+\begin{eqnarray}
+<\aimys(t)> & = & -1/2.\gamma_I\hbar\sin(2\pi\nu_It)\\
+<\aimzs(t)> & = & 0
+\end{eqnarray} 
+ce qui correspond une rotation à la fréquence $-\nu_I$ de $<\aimvec(t)>$,
+en partant à $t=0$ d'une aimantation alignée sur l'axe $Ox$
+du référentiel du laboratoire.
+
+Ce raisonnement est très général et peut s'étendre à l'étude de l'action
+du champ $\bunvec$.
+Les principes la mécanique quantique se substituent parfaitement
+à ceux de la mécanique classique sans introduire l'hypothèse supplémentaire
+de la nécessaire validité de cette dernière dans le domaine macroscopique.
+Le lecteur attentif aura remarqué que tout se joue dans l'équation
+\ref{eqn:interf} où l'évolution sinusoïdale de $\aimxs(t)$ est liée à un
+effet d'interférence quantique, tout à fait semblable
+dans sa forme à une interférence optique.
+
+Fin de la digression...
+
+En résumé, c'est bien parce qu'il y a deux niveaux d'énergie $E_{\al}$
+et $E_{\be}$ qu'il y a une précession de l'aimantation transversale à
+la fréquence $(E_{\be} - E_{\al})/h$ et qu'il est donc intéressant
+de tracer des diagrammes énergétiques.
+
+\section{Systèmes à deux spins}
+\subsection{Sans couplage scalaire}
+Si deux systèmes sont réunis sans qu'ils interagissent entre eux,
+leur énergie d'interaction avec l'extérieur est la somme
+des énergies prises séparément.
+On considère ici 2 noyaux $I$ et $S$ caractérisés par leur fréquence
+de résonance $\nu_I$ et $\nu_S$.
+L'énergie d'interaction $E$ s'exprime donc par
+\begin{equation}
+E/h = -m_s(I)\nu_I -m_s(S)\nu_S
+\end{equation}
+L'état quantique du système est défini par les valeurs de $m_s(I)$ et $m_s(S)$.
+Sous forme symbolique, on note $\al\al$, $\al\be$, $\be\al$ et $\be\be$
+les quatre états possibles de ce système composé de deux spins $1/2$,
+le premier signe étant relatif à $I$ et le second à $S$.
+
+Toutes les transitions énergétiques envisageables ne sont cependant pas
+réalisables par émission ou absorption d'une onde électromagnétique.
+Pour savoir quelles sont les transitions autorisées il faut d'abord
+définir le nombre quantique total :
+\begin{equation}
+m_s = m_s(I) + m_s(S)
+\end{equation}
+pour définir la règle de sélection :
+\begin{equation}
+|\Delta m_s| = 1
+\end{equation}
+qui se justifie à la fois par la loi de conservation du moment cinétique
+et l'attribution du spin 1 au photon, la particule
+associée au rayonnement électromagnétique.
+Pour cette raison, les transitions observables sont aussi appelées
+transitions "à $\pm 1$ quanta" ou "à simple quanta".
+
+Il en résulte quatre transitions possibles, pour lesquelles
+soit $\Delta m_s(I) = 1$ et $\Delta m_s(S) = 0$,
+soit $\Delta m_s(S) = 0$ et $\Delta m_s(S) = 1$.
+Les deux premières sont dites "transitions de $I$" et
+les secondes "transitions de $S$", comme
+indiqué sur la figure \ref{fig:diagramis}.
+
+\begin{figure}[hbt]
+\begin{center}
+\begin{pspicture}(0,-3.5)(14,4)
+\psline[linewidth=0.05]{->}(0.5,-3.5)(0.5,3.5)
+\rput(0.5,4){$E/h$}
+\psline(0,0)(1,0)
+\psline(1,0)(1.5,2)
+\psline(1,0)(1.5,-2)
+\psline(1.5,2)(2.5,2)
+\psline(1.5,-2)(2.5,-2)
+\psline{<->}(2,-2)(2,2)
+\rput(2.5,0){$\nu_I$}
+\psline(2.5,2)(3,3)
+\psline(2.5,2)(3,1)
+\psline(2.5,-2)(3,-1)
+\psline(2.5,-2)(3,-3)
+\psline[linewidth=1mm](3,3)(4,3)
+\psline[linewidth=1mm](3,1)(4,1)
+\psline{<->}(3.5,1.05)(3.5,2.95)
+\rput(4,2){$\nu_S$}
+\psline[linewidth=1mm](3,-3)(4,-3)
+\psline[linewidth=1mm](3,-1)(4,-1)
+\psline{<->}(3.5,-1.05)(3.5,-2.95)
+\rput(4,-2){$\nu_S$}
+\rput(4.5,0){
+ \rput(0,3){$\be\be$}
+ \rput(0,1){$\be\al$}
+ \rput(0,-1){$\al\be$}
+ \rput(0,-3){$\al\al$}
+}
+\rput(5.5,0){
+ \rput(0,4){$m_s(I)$}
+ \rput(0,3){$-1/2$}
+ \rput(0,1){$-1/2$}
+ \rput(0,-1){$+1/2$}
+ \rput(0,-3){$+1/2$}
+}
+\rput(7,0){
+ \rput(0,4){$m_s(S)$}
+ \rput(0,3){$-1/2$}
+ \rput(0,1){$+1/2$}
+ \rput(0,-1){$-1/2$}
+ \rput(0,-3){$+1/2$}
+}
+\rput(8.5,0){
+ \rput(0,4){$m_s$}
+ \rput(0,3){$-1$}
+ \rput(0,1){$0$}
+ \rput(0,-1){$0$}
+ \rput(0,-3){$+1$}
+}
+\rput(11.5,0){
+ \psline[linewidth=1mm](-2.5,1)(-1.5,1)
+ \rput(-1,1){$\be\al$}
+ \psline[linewidth=1mm](-0.5,3)(0.5,3)
+ \rput(0,3.5){$\be\be$}
+ \psline[linewidth=1mm](0.5,-3)(-0.5,-3)
+ \rput(0,-3.5){$\al\al$}
+ \psline[linewidth=1mm](2.5,-1)(1.5,-1)
+ \rput(1,-1){$\al\be$}
+ \psline{<->}(-2,1.05)(0,2.95)
+ \rput(-1.5,2.5){$\nu_S$}
+ \psline{<->}(-2,0.95)(0,-2.95)
+ \rput(-1.5,-1.5){$\nu_I$}
+ \psline{<->}(2,-1.05)(0,-2.95)
+ \rput(1.5,-2.5){$\nu_S$}
+ \psline{<->}(2,-0.95)(0,2.95)
+ \rput(1.5,1.5){$\nu_I$}
+}
+\end{pspicture}
+ \caption{\label{fig:diagramis}
+ Diagramme énergétique d'un système $IS$ de 2 spins non couplés
+ }
+\end{center}
+\end{figure}
+
+Les fréquences de résonance associées $\nu_I$ et $\nu_S$ sont données par
+\begin{eqnarray}
+h \nu_I & = & E_{\be\be} - E_{\al\be} = E_{\be\al} - E_{\al\al}\\
+h \nu_S & = & E_{\be\be} - E_{\be\al} = E_{\al\be} - E_{\al\al}
+\end{eqnarray}
+
+Les noyaux $I$ et $S$ n'ont aucune interaction et le spectre observable
+ne fera intervenir que leurs propres fréquences.
+
+Les transitions (une dans chaque sens) entre les états énergétiques 
+$\al\al$ et $\be\be$ correspondent à $\Delta m_s = \pm 2$ et sont
+appelées transitions "à double quanta" ;
+celles entre $\al\be$ et $\be\al$ sont des transitions "à 0 quanta".
+
+\subsection{Avec couplage scalaire}
+
+Deux noyaux $I$ et $S$ de même nature (système $IS$ homonucléaire) ou de nature 
+différentes (système $IS$ hétéronucléaire) peuvent interagir entre eux par couplage 
+scalaire (appelé ainsi parce qu'il s'exprime sous la forme d'un produit scalaire d'opérateurs...).
+Cette interaction a pour médiateurs les orbitales moléculaires et les spins électroniques.
+Elle est caractérisée à son intensité $J$, appelée constante de couplage
+et mesurée en Hertz.
+
+Le couplage est fort si $J$ est comparable ou plus grand 
+que la différence des fréquences de résonance des noyaux $I$ et $S$. 
+Cela n'est jamais le cas 
+pour les systèmes hétéronucléaires et peu fréquent dans les systèmes homonucléaires, 
+surtout à des valeurs élevées du champ magnétique $\bzeros$.
+Pour les systèmes faiblement couplés, l'expression de l'énergie
+du système des deux spins $I$ et $S$ comporte un terme supplémentaire
+lié à l'existence du couplage :
+\begin{equation}
+E/h = -m_s(I)\nu_I -m_s(S)\nu_S + Jm_s(I)m_s(S)
+\end{equation}
+
+Les règles de sélection restant valides (par ce que les couplages sont faibles),
+quatre transitions sont observables.
+Leurs fréquences sont maintenant toutes différentes et données par :
+\begin{eqnarray}
+\nu_1 & = & (E_{\be\al} - E_{\al\al})/h = \nu_I - J/2 \\
+\nu_2 & = & (E_{\be\be} - E_{\al\be})/h = \nu_I + J/2 \\
+\nu_3 & = & (E_{\al\be} - E_{\al\al})/h = \nu_S - J/2 \\
+\nu_4 & = & (E_{\be\be} - E_{\be\al})/h = \nu_S + J/2
+\end{eqnarray}
+Comme indiqué dans la figure \ref{fig:diagramisj}.
+Les deux premières fréquences sont liées aux transitions à simple ($\pm 1$) quanta
+du noyau $I$ et les deux dernières aux transitions à simple quanta
+de $S$.
+Ce qui différence les fréquences des deux transitions de $I$ (ou de $S$)
+réside simplement dans le fait que l'état du spin $S$ (ou de $I$)
+est soit $\al$ soit $\be$.
+Dans le premier cas la fréquence de la transition est diminuée de $J/2$,
+dans le second cas elle est augmentée de $J/2$.
+Une transition d'un noyau est donc pleinement définie à partir de la
+donnée de l'état de l'autre noyau du système, ou des autres noyaux s'il
+y en a plus que deux dans le système.
+
+\begin{figure}[hbt]
+\begin{center}
+\begin{pspicture}(0,-3.5)(14,4)
+\psline[linewidth=0.05]{->}(0.5,-3.5)(0.5,3.5)
+\rput(0.5,4){$E/h$}
+\psline(0,0)(1,0)
+\psline(1,0)(1.5,2)
+\psline(1,0)(1.5,-2)
+\psline(1.5,2)(2.5,2)
+\psline(1.5,-2)(2.5,-2)
+\psline{<->}(2,-2)(2,2)
+\rput(2.5,0){$\nu_I$}
+\psline(2.5,2)(3,3)
+\psline(2.5,2)(3,1)
+\psline(2.5,-2)(3,-1)
+\psline(2.5,-2)(3,-3)
+\psline(3,3)(4,3)
+\psline(3,1)(4,1)
+\psline{<->}(3.5,1)(3.5,3)
+\rput(4,2){$\nu_S$}
+\psline(3,-3)(4,-3)
+\psline(3,-1)(4,-1)
+\psline{<->}(3.5,-1)(3.5,-3)
+\rput(4,-2){$\nu_S$}
+\psline(4,3)(4.5,3.5)
+\psline(4,1)(4.5,0.5)
+\psline(4,-1)(4.5,-1.5)
+\psline(4,-3)(4.5,-2.5)
+\psline[linewidth=1mm](4.5,3.5)(5.5,3.5)
+\psline[linewidth=1mm](4.5,0.5)(5.5,0.5)
+\psline[linewidth=1mm](4.5,-2.5)(5.5,-2.5)
+\psline[linewidth=1mm](4.5,-1.5)(5.5,-1.5)
+\rput(5,0){
+ \rput(0,3){$\be\be$}
+ \rput(0,1){$\be\al$}
+ \rput(0,-1){$\al\be$}
+ \rput(0,-3){$\al\al$}
+}
+\rput(6,0){
+ \psline{->}(0,3)(0,3.5)
+ \psline{->}(0,1)(0,0.5)
+ \psline{->}(0,-1)(0,-1.5)
+ \psline{->}(0,-3)(0,-2.5)
+}
+\rput(7,0){
+ \rput(0,4){$Jm_s(I)m_s(S)$}
+ \rput(0,3.25){$+J/4$}
+ \rput(0,0.75){$-J/4$}
+ \rput(0,-1.25){$-J/4$}
+ \rput(0,-2.75){$+J/4$}
+}
+\rput(11.5,0){
+ \psline[linewidth=1mm](-2.5,0.5)(-1.5,0.5)
+ \rput(-1,0.5){$\be\al$}
+ \psline[linewidth=1mm](-0.5,3.5)(0.5,3.5)
+ \rput(0,4){$\be\be$}
+ \psline[linewidth=1mm](0.5,-2.5)(-0.5,-2.5)
+ \rput(0,-3){$\al\al$}
+ \psline[linewidth=1mm](2.5,-1.5)(1.5,-1.5)
+ \rput(1,-1.5){$\al\be$}
+ \psline{<->}(-2,0.55)(0,3.45)
+ \rput(-2,2){$\nu_S+J/2$}
+ \psline{<->}(-2,0.45)(0,-2.45)
+ \rput(-2,-1){$\nu_I-J/2$}
+ \psline{<->}(2,-1.55)(0,-2.45)
+ \rput(2,-2.25){$\nu_S-J/2$}
+ \psline{<->}(2,-1.45)(0,3.45)
+ \rput(2,1.5){$\nu_I+J/2$}
+}
+\end{pspicture}
+ \caption{\label{fig:diagramisj}
+ Diagramme énergétique d'un système $IS$ de 2 spins faiblement couplés.
+ }
+\end{center}
+\end{figure}
+
+La constante de couplage $J$ est expérimentalement accessible en remarquant
+que :
+\begin{equation}
+J = \nu_2 - \nu_1 = \nu_4 - \nu_3 
+\end{equation}
+
+Remarquons enfin que les fréquences des transitions à double (DQ) et à zéro (ZQ) quanta
+ne dépendent pas de la valeur de $J$ :
+\begin{eqnarray}
+\nu_{\mbox{\scriptsize{DQ}}} & = & (E_{\be\be} - E_{\al\al})/h = \nu_I + \nu_S \\
+\nu_{\mbox{\scriptsize{ZQ}}} & = & (E_{\be\al} - E_{\al\be})/h = \nu_I - \nu_S
+\end{eqnarray}
+
+\section{Systèmes à trois spins}
+L'énergie d'un système de trois spins faiblement couplés $ISL$ est donnée par :
+\begin{eqnarray}
+E/h & = & -m_s(I) \nu_I -m_s(S) \nu_S -m_s(L) \nu_L \\
+& & \quad + J_{IS} m_s(I) m_s(S) + J_{IL} m_s(I) m_s(L) + J_{SL} m_s(S) m_s(L)
+\end{eqnarray}
+chacune des constantes de couplage étant faible devant la différence
+des fréquences de résonance des noyaux dont elle décrit le couplage.
+Un système de trois spins possède donc 8 niveaux énergétiques possibles.
+Les transitions autorisées sont celles pour lesquelles
+\begin{equation}
+|\Delta m_s| = 1
+\end{equation}
+avec
+\begin{equation}
+m_s = m_s(I) + m_s(S) + m_s(L)
+\end{equation}
+où, à nouveau, $m_s$ est le nombre quantique associé à la projection sur
+un axe du moment cinétique total du système.
+
+La figure \ref{fig:diagramisl} représente symboliquement les 8 niveaux 
+et les douze transitions observables dans un système $ISL$ faiblement couplé.
+
+\begin{figure}[hbt]
+\begin{center}
+\begin{pspicture}(-4,-3.5)(4,3.5)
+\psline[linewidth=1mm](-0.5,3)(0.5,3)
+\psline[linewidth=1mm](-3.5,1)(-2.5,1)
+\psline[linewidth=1mm](-0.5,1)(0.5,1)
+\psline[linewidth=1mm](2.5,1)(3.5,1)
+\psline[linewidth=1mm](-0.5,-3)(0.5,-3)
+\psline[linewidth=1mm](-3.5,-1)(-2.5,-1)
+\psline[linewidth=1mm](-0.5,-1)(0.5,-1)
+\psline[linewidth=1mm](2.5,-1)(3.5,-1)
+\rput(0,3.5){$\be\be\be$}
+\rput(-4,1.5){$\al\be\be$}
+\rput(-0.6,1.5){$\be\al\be$}
+\rput(4,1.5){$\be\be\al$}
+\rput(0,-3.5){$\al\al\al$}
+\rput(4,-1.5){$\be\al\al$}
+\rput(0.6,-1.5){$\al\be\al$}
+\rput(-4,-1.5){$\al\al\be$}
+\psline{<->}(0,2.95)(-3,1.05)
+\psline{<->}(0,2.95)(0,1.05)
+\psline{<->}(0,2.95)(3,1.05)
+\psline{<->}(-3,0.95)(-3,-0.95)
+\psline{<->}(-3,0.95)(0,-0.95)
+\psline{<->}(-3,-0.95)(0,0.95)
+\psline{<->}(0,-2.95)(3,-1.05)
+\psline{<->}(0,-2.95)(0,-1.05)
+\psline{<->}(0,-2.95)(-3,-1.05)
+\psline{<->}(3,-0.95)(3,0.95)
+\psline{<->}(3,-0.95)(0,0.95)
+\psline{<->}(3,0.95)(0,-0.95)
+\end{pspicture}
+ \caption{\label{fig:diagramisl}
+ Diagramme énergétique d'un système de 3 spins $ISL$.
+ }
+\end{center}
+\end{figure}
+
+Ainsi, par exemple, la transition $\be\al\al \rightarrow \be\be\al$ est une transition
+du noyau $S$ qui s'opère avec $I$ dans l'état $\be$ et $L$ dans l'état $\al$.
+Sa fréquence est la somme de trois termes : $\nu_S$ parce que c'est une transition
+de $S$, $+J_{IS}/2$ car $I$ est dans l'état $\be$ et $-J_{SL}/2$ car $L$ est dans
+l'état $\alpha$, soit au total 
+\begin{equation}
+\nu(\be\al\al \rightarrow \be\be\al) = \nu_S + J_{IS}/2 - J_{SL}/2
+\end{equation}
+
+La transition $\al\al\be \rightarrow \be\be\al$ satisfait à la condition
+$|\Delta m_s| = 1$ bien que sa probabilité d'observation soit nulle.
+Il y a au total trois transitions de ce genre qui sont inobservables.
+Dans les systèmes fortement couplés $ABC$ il est possible d'observer
+jusqu'à 15 (12 + 3) transitions.
+
+\section{Diagramme énergétique et population des états}
+
+Les différents niveaux énergétiques d'un système en équilibre thermodynamique
+sont peuplés par les noyaux en fonction de la distribution de Boltzman.
+Comme il a déjà été souligné, les différences d'énergie entre niveaux sont
+très faibles par rapport $kT$ dans les conditions usuelles de température,
+et donc les noyaux se répartissent à peu près équitablement
+entre les niveaux possibles. 
+Cet "à peu près" fait toute la différence puisque
+l'intensité du signal observable est proportionnelle aux différences de population,
+comme cela a été étudié en détail pour un spin isolé.
+
+Un système de $n$ spins 1/2 possède $2^n$ niveaux énergétiques puisque chaque spin
+peut être soit dans l'état $\al$ soit dans l'état $\be$.
+Chaque niveau d'énergie $E_i (1 \le i \le 2^n)$ d'un ensemble de $P$ systèmes
+de spins identiques est peuplé par $p_i$ noyaux avec
+\begin{eqnarray}
+\sum_i^{2^n} p_i & = & P \\
+p_i & = & Z \exp(-E_i/kT) = Z(1 - E_i/kT)
+\end{eqnarray}
+dans l'hypothèse où $E_i \ll kT$.
+$Z$ est un facteur de proportionnalité qui est déterminé par
+\begin{eqnarray}
+P & = & \sum_i^{2^n} (Z - ZE_i/kT) \\
+& = & 2^n Z - Z/kT \sum_i^{2^n} E_i \\
+& = & 2^n Z
+\end{eqnarray}
+sachant que la somme des énergies de tous les niveaux est nulle (il
+suffit de faire l'addition pour s'en rendre compte).
+Deux états indexés $i$ et $j$ d'énergie $E_i$ et $E_j$ auront comme population
+$p_i = Z(1-E_i/kT)$ et $p_j = Z(1-E_j/kT)$ soit une différence de population
+\begin{equation}
+\label{eqn:diffpop}
+p_i - p_j = -P/2^n.(E_i - E_j)/kT
+\end{equation}
+proportionnelle à leur différence d'énergie.
+Il est utile de signaler qu'étant donné que les constantes de couplage
+scalaire sont au plus de quelques centaines de Hz (sauf cas exceptionnels)
+et que les fréquences de résonance sont de l'ordre de quelques dizaines
+ou quelques centaines de MHz, les populations ne sont pas affectées par
+l'intensité des couplages.
+
+En considérant par exemple le noyau $I$ d'un système $ISL$ ($n$ = 3),
+les différences de population $p_{\al i j} -p_{\be i j}$, avec $i$ et $j$
+valant $\al$ ou $\be$, sont toutes égales :
+\begin{eqnarray}
+p_{\al i j} -p_{\be i j} & = & P/8.h\nu_I/kT \\
+& = & P/8.\gamma_I.\hbar \bzeros/kT
+\end{eqnarray}
+sachant que les écarts énergétiques apportés par les déplacements chimiques
+($E/h$ est de l'ordre de quelques dizaines de kHz tout au plus)
+sont aussi trop faibles pour perturber notablement les populations.
+Les différences de population considérées ici sont d'une grande importance pratique
+car elles correspondent à des états pour lesquels des transitions sont
+observables et car les intensités de ces transitions sont proportionnelles
+aux différences de population correspondantes.
+
+Il est possible de définir la différence de population $\Delta P(I)$ du noyau
+$I$ comme étant la somme des différences de population correspondant
+aux quatre états possibles des spins $S$ et $L$ :
+\begin{eqnarray}
+\Delta P(I) & = & (p_{\al \al \al} -p_{\be \al \al}) + (p_{\al \al \be} -p_{\be \al \be})
+\nonumber\\
+& & \quad + (p_{\al \be \al} -p_{\be \be \al}) + (p_{\al \be \be} -p_{\be \be \be}) \\
+& = & P.\gamma_I.\hbar B_0/2kT
+\end{eqnarray}
+Cette valeur est indépendante du nombre de spins dans le système : le facteur 2
+au dénominateur provient du rapport $2^n/2^{n-1} = 2$, sachant que $2^n$ provient
+de l'équation \ref{eqn:diffpop} et que $2^{n-1}$ est le nombre d'états possibles
+une fois que l'état d'un noyau a été fixé.
+
+Le concept de différence de population pour un noyau est utile pour définir
+la contribution de chaque noyau $I$ au vecteur aimantation macroscopique
+global de l'échantillon $\aimzeros$ dans sa situation d'équilibre.
+Ainsi,
+\begin{eqnarray}
+\aimzerozs(I) & = & \Delta P(I) . \gamma(I)\hbar/2 \\
+& = & P.\gamma(I)^2.\hbar^2 B_0/4kT
+\end{eqnarray}
+le résultat établi pour un spin 1/2 isolé restant valable pour un spin 1/2
+appartenant à un système de spins couplés.
+Il faut toutefois noter que dans le cas d'un système à $n$ spins, 
+la contribution de chaque noyau à $\aimzerovec$
+résulte de la sous-contribution de $2^{n-1}$ vecteurs aimantation macroscopique
+identiques (vecteurs élémentaires), 
+chacun étant associé à une énergie d'une transition observable,
+c'est-à-dire à une fréquence de résonance mesurable.
+
+La mise hors équilibre de l'aimantation de l'échantillon par création
+d'aimantation transversale est le moyen de mettre en évidence
+les transitions entre niveaux énergétiques.
+Chaque vecteur élémentaire décrit ensuite le mouvement de précession de Larmor
+à la fréquence égale à la fréquence de la transition qui lui correspond.
+Tout ceci constitue la base du modèle vectoriel de la RMN, généralisé aux systèmes
+faiblement couplés. Le modèle vectoriel sera étudié plus en détail, après avoir
+exposé la description de la RMN à l'aide du concept de matrice densité.

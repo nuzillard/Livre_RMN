@@ -1,0 +1,8 @@
+awk '
+BEGIN {flag = 1}
+/BeginPreview/ {flag = 0 ; next}
+/EndPreview/ {flag = 1 ; next}
+flag == 0 {next}
+flag == 1 {print}
+'
+

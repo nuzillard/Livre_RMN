@@ -1,0 +1,79 @@
+%!
+
+/TextFont /Times-Italic findfont 16 scalefont def
+
+/fllen 10 def
+/flwid 3 def
+/fleche {
+	gsave
+	translate
+	rotate
+	newpath
+	0 0 moveto
+	fllen neg flwid lineto
+	fllen neg flwid neg lineto
+	closepath
+	fill
+	grestore
+} def
+
+/aimvec {
+	/flwid0 flwid def /fllen0 fllen def
+	/flwid 2 def /fllen 6 def
+	TextFont setfont
+	/y0 exch def /x0 exch def
+	x0 y0 moveto (M) show
+	0.5 setlinewidth
+	/y0 y0 14 add def
+	newpath
+	x0 y0 moveto
+	14 0 rlineto
+	0 currentpoint
+	stroke
+	fleche
+	/flwid flwid0 def /fllen fllen0 def	
+} def
+
+/dessin {
+	gsave
+	offx offy translate
+	1 setlinewidth
+	/sa a0 def
+	/sx 0 def
+	/sy 0 def
+	na {
+		newpath
+		sx sy moveto
+		/sx sa cos l mul sx add def
+		/sy sa sin l mul sy add def 
+		sx sy lineto
+		stroke
+		sa sx sy fleche
+		/sa sa da add def
+	} repeat
+	1.5 setlinewidth
+	newpath
+	0 0 moveto
+	sx sy lineto stroke
+	a0 sa add da sub 2 div sx sy fleche
+	sx 1.1 mul sy 1.1 mul aimvec
+	grestore
+} def
+
+/l 18 def
+/na 5 def
+/offy 5 72 mul def
+
+/offx 2 72 mul def
+/a0 0 def
+/da 0 def
+dessin
+/offx 4 72 mul def
+/a0 10 def
+/da 20 def
+dessin
+/offx 6 72 mul def
+/a0 20 def
+/da 40 def
+dessin
+showpage
