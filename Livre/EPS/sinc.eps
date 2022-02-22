@@ -1,0 +1,108 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 143 324 323 452
+%%HiResBoundingBox: 143.500000 324.000000 322.500000 452.000000
+%%EndComments
+% EPSF created by ps2eps 1.68
+%%BeginProlog
+save
+countdictstack
+mark
+newpath
+/showpage {} def
+/setpagedevice {pop} def
+%%EndProlog
+%%Page 1 1
+/TextFont /Times-Italic findfont 20 scalefont def
+/NumFont /Times-Roman findfont 16 scalefont def
+/SymbolFont /Symbol findfont 20 scalefont def
+/SymbolIndexFont /Symbol findfont 14 scalefont def
+/indexshift -4 def
+/nstr 2 string def
+/centertext { dup stringwidth pop 2 div neg 0 rmoveto show } def
+/pi 3.14159265 def
+/rad 180 pi div def
+/xsz 1 72 mul def
+/ysz 1 72 mul def
+/xmax pi 4 mul def
+/ymax 1 def
+/offx 3 72 mul def
+/offy 5 72 mul def
+/conv { ymax div ysz mul exch xmax div xsz mul exch } def
+/fllen 10 def
+/flwid 3 def
+/npts 100 def
+/dx xmax 2 mul npts div def
+/func { dup 0 eq { 1 } { dup rad mul sin exch div} ifelse } def
+/coords { dup func conv } def
+/dessinfunc {
+	newpath
+	xmax neg coords moveto
+	/x xmax neg dx add def
+	npts {
+		x coords lineto
+		/x x dx add def
+	} repeat
+	stroke
+} def
+/deco {
+	newpath pi neg coords 3 0 360 arc fill
+	pi neg coords 3 add exch 10 sub exch moveto TextFont setfont (A) centertext
+	newpath pi coords 3 0 360 arc fill
+	pi coords 3 add exch 10 add exch moveto TextFont setfont (B) centertext
+	newpath pi 3 mul 2 div coords 3 0 360 arc fill
+	pi 3 mul 2 div coords 20 sub exch 0 add exch moveto TextFont setfont (C) centertext
+} def
+/fleche {
+	gsave
+	translate
+	rotate
+	newpath
+	fllen 0 moveto
+	0 flwid lineto
+	0 flwid neg lineto
+	closepath
+	fill
+	grestore
+} def
+/linex {
+	newpath
+	xmax neg 0 conv moveto
+	xmax 0 conv exch 10 add exch lineto
+	currentpoint
+	0 currentpoint % for the arrow
+	stroke
+	fleche
+	SymbolFont setfont
+	20 sub exch 10 add exch moveto (W) show
+} def
+/liney {
+	newpath
+	0 ymax 4 div neg conv 10 sub moveto
+	0 ymax conv 10 add lineto
+	90 currentpoint % for the arrow
+	stroke
+	fleche	
+	0 0 conv 15 sub exch 10 sub exch moveto
+	NumFont setfont (0) show
+	newpath
+	0 ymax conv exch 5 sub exch moveto
+	0 ymax conv exch 5 add exch lineto
+	stroke
+	0 ymax conv 5 sub exch 15 sub exch moveto
+	(1) show	
+} def
+gsave
+offx offy translate
+1 setlinewidth
+dessinfunc
+deco
+linex
+liney
+showpage
+grestore
+%%Trailer
+cleartomark
+countdictstack
+exch sub { end } repeat
+restore
+%%EOF

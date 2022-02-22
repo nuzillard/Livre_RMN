@@ -14,6 +14,7 @@ Les codes sources des figures ont diverses origines
 - des schémas produits par du code écrit en langage C et dont l'exécution produit du code en langage Postscript
 - des schémas produits par Gnuplot
 
+Les figures au format eps sont disponibles dans le sous-dossier EPS.
 
 Recréer le livre au format pdf se fait par la commande `make pdf`.
 

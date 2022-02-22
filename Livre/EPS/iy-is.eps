@@ -1,0 +1,162 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 143 255 318 474
+%%HiResBoundingBox: 143.500000 255.000000 317.500000 474.000000
+%%EndComments
+% EPSF created by ps2eps 1.68
+%%BeginProlog
+save
+countdictstack
+mark
+newpath
+/showpage {} def
+/setpagedevice {pop} def
+%%EndProlog
+%%Page 1 1
+/TextFont /Times-Italic findfont 20 scalefont def
+/NumFont /Times-Roman findfont 16 scalefont def
+/SymbolFont /Symbol findfont 20 scalefont def
+/SymbolIndexFont /Symbol findfont 14 scalefont def
+/TextIndexFont /Times-Italic findfont 14 scalefont def
+/indexshift -4 def
+/nstr 2 string def
+/centertext { dup stringwidth pop 2 div neg 0 rmoveto show } def
+/righttext { dup stringwidth pop neg 0 rmoveto show } def
+/xsz 1 72 mul def
+/ysz 1 72 mul def
+/xmax 1 def
+/ymax 1 def
+/offx 3 72 mul def
+/offy 5 72 mul def
+/convx { xmax div xsz mul } def
+/convy { ymax div ysz mul } def
+/conv { convy exch convx exch } def
+% /conv { ymax div ysz mul exch xmax div xsz mul exch } def
+/fllen 10 def
+/flwid 3 def
+/npts 200 def
+/dx xmax 2 mul npts div def
+/lamb 20 def
+/om0 0.0 def
+/coupl 0.5 def
+/om1 om0 coupl add def
+/om2 om0 coupl sub def
+% /func0 { om0 sub lamb mul dup dup mul 1 add div fact mul} def
+/func { dup om1 sub func0 exch om2 sub func0 add } def
+/fact 1 def
+%/func0 { lamb mul dup mul 1 add 1 exch div } def
+/func0 { lamb mul dup dup mul 1 add div fact mul} def
+/coords { dup func conv } def
+/dessinfunc {
+	newpath
+	1 neg coords moveto
+	/x 1 neg dx add def
+	npts {
+		x coords lineto
+		/x x dx add def
+	} repeat
+	stroke
+} def
+/deco {
+	[8 8] 0 setdash
+	/lw currentlinewidth def
+	0.5 setlinewidth
+	/x om1 def
+	newpath
+	x 1.5 conv moveto
+	x -1.2 conv lineto
+	stroke
+	x -1.4 conv moveto 
+	SymbolFont setfont (n) centertext
+	SymbolIndexFont setfont
+	currentpoint indexshift add moveto (2) show
+	/x om2 def
+	newpath
+	x 1.5 conv moveto
+	x -1.2 conv lineto
+	stroke
+	x -1.4 conv moveto 
+	SymbolFont setfont (n) centertext
+	SymbolIndexFont setfont
+	currentpoint indexshift add moveto (1) show
+	lw setlinewidth
+	[] 0 setdash
+	/x om0 def
+	x -1.4 conv moveto 
+	SymbolFont setfont (n) centertext
+	TextIndexFont setfont
+	currentpoint indexshift add moveto (I) show
+	x 1.4 conv moveto
+	TextFont setfont (J) centertext
+	newpath
+	om0 0.1 add 1.5 conv moveto
+	om1 1.5 conv lineto
+	0 currentpoint exch fllen sub exch % for the arrow
+	stroke
+	fleche
+	newpath
+	om0 0.1 sub 1.5 conv moveto
+	om2 1.5 conv lineto
+	180 currentpoint exch fllen add exch % for the arrow
+	stroke
+	fleche
+} def
+/fleche {
+	gsave
+	translate
+	rotate
+	newpath
+	fllen 0 moveto
+	0 flwid lineto
+	0 flwid neg lineto
+	closepath
+	fill
+	grestore
+} def
+/linex {
+	newpath
+	1 neg 0 conv moveto
+	xmax 0 conv exch 10 add exch lineto
+	currentpoint % for the text (where)
+	0 currentpoint % for the arrow (angle where)
+	stroke
+	fleche
+	SymbolFont setfont
+	15 sub exch 10 add exch moveto (n) show
+} def
+/liney {
+	newpath
+	0 ymax neg conv 10 sub moveto
+	0 ymax conv 10 add lineto
+	90 currentpoint % for the arrow (angle where)
+	stroke
+	fleche	
+	0 0 conv 15 sub exch 5 sub exch moveto
+	NumFont setfont (0) righttext
+	newpath
+	0 ymax conv exch 5 sub exch moveto
+	0 ymax conv exch 5 add exch lineto
+	stroke
+	0 ymax conv 5 add exch 5 sub exch moveto
+	(1/2) righttext
+	newpath
+	0 ymax neg conv exch 5 sub exch moveto
+	0 ymax neg conv exch 5 add exch lineto
+	stroke
+	0 ymax neg conv 15 sub exch 5 sub exch moveto
+	(-1/2) righttext
+} def
+gsave
+offx offy translate
+1 setlinewidth
+dessinfunc
+deco
+linex
+liney
+grestore
+showpage
+%%Trailer
+cleartomark
+countdictstack
+exch sub { end } repeat
+restore
+%%EOF
