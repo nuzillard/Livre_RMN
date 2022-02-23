@@ -14,9 +14,9 @@ Les codes sources des figures ont diverses origines
 - des schémas produits par du code écrit en langage C et dont l'exécution produit du code en langage Postscript
 - des schémas produits par Gnuplot
 
-Les figures au format eps sont disponibles dans le sous-dossier EPS.
+Les figures au format eps sont disponibles dans le dossier EPS.
 
-Recréer le livre au format pdf se fait par la commande `make pdf`.
+Recréer le livre au format pdf à partir des fichiers sources se fait par la commande `make pdf`.
 
 Il faut donc disposer
 - de LaTeX (distribution TexLive)
@@ -24,4 +24,4 @@ Il faut donc disposer
 - d'un compilateur C (gcc) pour fabriquer les binaires exécutables qui produisent du code PostScript
 - de Perl pour produire des tables de valeurs numériques lues par le package pstricks de LaTeX
 - de ps2eps pour que le code PostScript (.ps) des figures puisse être utilisé par LaTeX après transformation en fichier .eps
-- éventuellement de Gnuplot pour recréer les graphes de contours et de surfaces dans le dossier ContSurf, directement produit au format eps.
+- éventuellement de Gnuplot pour recréer les graphes de contours et de surfaces dans le dossier ContSurf, directement produits au format eps.
