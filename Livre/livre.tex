@@ -216,7 +216,7 @@
 \usepackage{babel}
 \makeatother
 
-\includeonly{toc,preambule,intro,bloch,ft,diagram,densite,densite2,rmn1d1,rmn1d2,rmn2d1,anxrefer,anxfourier,anxhamilt,anxmaths}
+\includeonly{preambule,intro,bloch,ft,diagram,densite,densite2,rmn1d1,rmn1d2,rmn2d1,anxrefer,anxfourier,anxhamilt,anxmaths}
 %\includeonly{rmn2d1}
 \begin{document}
 \frontmatter
@@ -228,7 +228,12 @@ Université de Reims--Champagne--Ardenne}}
 \maketitle
 
 \include{preambule}
-\include{toc}
+
+\setcounter{page}{1}
+\tableofcontents
+\listoftables
+\listoffigures
+
 \mainmatter
 \include{intro}
 \include{bloch}
