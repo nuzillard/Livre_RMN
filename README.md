@@ -8,18 +8,19 @@ Le script d'assemblage a été créé sous Linux et utilise `make`.
 
 Les codes sources des figures ont diverses origines
 - du code LaTeX (pstricks) insérés dans le texte
-		- éventuellement faisant appel à des données numériques produites par du code écrit en Perl
-- des spectres qui proviennent du logiciel GIFA (non modifiables)
+	- éventuellement faisant appel à des données numériques produites par du code écrit en Perl
+- des spectres qui proviennent du logiciel GIFA (à présent non modifiables)
 - des schémas écrits directement en langage PostScript
 - des schémas produits par du code écrit en langage C et dont l'exécution produit du code en langage Postscript
 - des schémas produits par Gnuplot
 
 Les figures au format eps sont disponibles dans le dossier EPS.
+Les figures au format pdf sont disponibles dans le dossier PDF.
 
 Recréer le livre au format pdf à partir des fichiers sources se fait par la commande `make pdf`.
 
 Il faut donc disposer
-- de LaTeX (distribution TexLive)
+- de LaTeX (distribution TexLive) et des packages indiqués dans livre.tex
 - de make pour construite le fichier pdf final
 - d'un compilateur C (gcc) pour fabriquer les binaires exécutables qui produisent du code PostScript
 - de Perl pour produire des tables de valeurs numériques lues par le package pstricks de LaTeX
